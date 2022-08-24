@@ -17,13 +17,13 @@ const Navigation = () => {
             <Nav.Link as={NavLink} end to="/">
               Home
             </Nav.Link>
-            <Nav.Link as={NavLink} end to="/">
+            <Nav.Link as={NavLink} end to="/nowplaying">
               Now Playing
             </Nav.Link>
-            <Nav.Link as={NavLink} end to="/">
+            <Nav.Link as={NavLink} end to="/popularmovies">
               Popular Movies
             </Nav.Link>
-            <Nav.Link as={NavLink} end to="/">
+            <Nav.Link as={NavLink} end to="/topratedmovies">
               Top Rated Movies
             </Nav.Link>
           </Nav>
