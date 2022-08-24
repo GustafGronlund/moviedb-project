@@ -10,7 +10,14 @@ const api = axios.create({
 
 // Get popular movies
 export const getPopularMovies = async () =>
-  api
+  await api
+    .get(
+      `/movie/popular?api_key=${API_KEY}&language=en-US&region=US&page=1${adultCont}`
+    )
+    .then((res) => res.data);
+
+export const getUpcomingMovies = async () =>
+  await api
     .get(
       `/movie/popular?api_key=${API_KEY}&language=en-US&region=US&page=1${adultCont}`
     )

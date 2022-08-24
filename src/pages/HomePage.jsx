@@ -1,5 +1,6 @@
 import Container from "react-bootstrap/Container";
 import PopularMovies from "../components/PopularMovies";
+import "../styles/HomePage.css";
 
 const HomePage = () => {
   return (

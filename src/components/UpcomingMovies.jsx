@@ -13,7 +13,7 @@ const PopularMovies = () => {
       <section className="popularMovies">
         {data?.results.map((movie) => (
           <div>
-            <img src={`${imgUrl}${movie.poster_path}`} />
+            <img key={movie.id} src={`${imgUrl}${movie.poster_path}`} />
             <p key={movie.id}>{movie.original_title}</p>
           </div>
         ))}
