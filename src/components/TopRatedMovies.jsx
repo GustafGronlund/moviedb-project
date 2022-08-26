@@ -4,13 +4,13 @@ import { Link } from "react-router-dom";
 import Marquee from "react-fast-marquee";
 import * as api from "../services/TMDBAPI";
 
-const PopularMovies = () => {
+const TopRatedMovies = () => {
   // länk till movies-id
   const imgUrl = "https://image.tmdb.org/t/p/w500";
   // popular-movies är nyckel i cache för att separera mot andra querys, nästa är api-call
   const { data, isLoading, isError, error } = useQuery(
-    "popular-movies",
-    api.getPopularMovies
+    "toprated-movies",
+    api.getTopRatedMovies
   );
   console.log("datan:", data);
 
@@ -24,7 +24,7 @@ const PopularMovies = () => {
 
   return (
     <>
-      <h4>20 most popular movies</h4>
+      <h4>20 most top rated movies xD</h4>
       <section className="popularMovies">
         {/* <Marquee
           pauseOnHover={true}
@@ -52,4 +52,4 @@ const PopularMovies = () => {
   );
 };
 
-export default PopularMovies;
+export default TopRatedMovies;

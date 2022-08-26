@@ -2,13 +2,14 @@ import React from "react";
 import { Link, useParams } from "react-router-dom";
 import { useQuery } from "react-query";
 import * as api from "../services/TMDBAPI";
+import "../styles/Movie.scss";
 
 const Movie = () => {
   const { id } = useParams();
   const imgUrl = "https://image.tmdb.org/t/p/w500";
   const { data, isLoading, isError, error } = useQuery(
     ["single-movie", id],
-    api.getSingleMovie
+    api.getMovie
   );
 
   if (isLoading) {
@@ -24,10 +25,10 @@ const Movie = () => {
   return (
     <>
       {data && (
-        <div>
+        <div className="movie-actor-hero">
           <img src={`${imgUrl}${data.backdrop_path}`} />
           <h1>{data.original_title}</h1>
-          <div>
+          <div className="small-info-container">
             <p>Release date: {data.release_date}</p>
             <div>
               {data.genres.map((genre) => (
@@ -38,7 +39,7 @@ const Movie = () => {
           <p>{data.overview}</p>
           <div className="actors-container">
             {data.credits.cast.map((actor) => (
-              <div>
+              <div classname="cast-person-container">
                 <img
                   src={`https://image.tmdb.org/t/p/w200${actor.profile_path}`}
                 />

@@ -1,0 +1,29 @@
+.movie-actor-hero p,
+.movie-actor-hero h1,
+.movie-actor-hero a {
+  color: white;
+}
+
+.actors-container {
+  display: flex;
+  flex-direction: row;
+  overflow-y: scroll;
+}
+
+.cast-person-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.small-info-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0 3% 0 3%;
+  div {
+    display: flex;
+    flex-direction: row;
+  }
+}

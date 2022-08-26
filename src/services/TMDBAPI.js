@@ -11,13 +11,25 @@ export const get = async (endpoint) => {
   return response.data;
 };
 
-// Get popular movies
+// get all the popular movies
 export const getPopularMovies = () => {
   return get(`${axios.defaults.baseURL}/movie/popular${API_KEY}${adultCont}`);
 };
 
-// Get single movies based on id
-export const getSingleMovie = ({ queryKey }) => {
+// get all the popular movies
+export const getTopRatedMovies = () => {
+  return get(`${axios.defaults.baseURL}/movie/top_rated${API_KEY}${adultCont}`);
+};
+
+// get all the latest movies
+export const getLatestMovies = () => {
+  return get(
+    `${axios.defaults.baseURL}/movie/now_playing${API_KEY}${adultCont}`
+  );
+};
+
+// get specific movie based on id
+export const getMovie = ({ queryKey }) => {
   const [_key, id] = queryKey;
 
   return get(
@@ -25,8 +37,9 @@ export const getSingleMovie = ({ queryKey }) => {
   );
 };
 
+// get specific actor based on id
 export const getActor = ({ queryKey }) => {
   const [_key, id] = queryKey;
 
-  return get(`${axios.defaults.baseURL}/person/${id}${API_KEY}`);
+  return get(`${axios.defaults.baseURL}/person/${id}${API_KEY}${credits}`);
 };

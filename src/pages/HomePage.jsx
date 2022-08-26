@@ -1,13 +1,12 @@
-import Container from "react-bootstrap/Container";
 import PopularMovies from "../components/PopularMovies";
 import { Link } from "react-router-dom";
-import "../styles/HomePage.css";
+import "../styles/HomePage.scss";
 
 const HomePage = () => {
   return (
-    <Container className="py-3">
-      <PopularMovies />
-    </Container>
+    <div>
+      <p>yeah this is the landing page</p>
+    </div>
   );
 };
 

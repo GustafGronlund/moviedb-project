@@ -1,0 +1,14 @@
+.popularMovies {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.movie-div {
+  width: 50%;
+}
+
+.movie-div img {
+  width: 60%;
+}

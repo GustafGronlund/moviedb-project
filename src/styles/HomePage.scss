@@ -1,0 +1,27 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+section {
+  display: flex;
+  flex-direction: row;
+  height: 20%;
+}
+
+.movie-div {
+  background-color: black;
+  display: grid;
+  place-items: center;
+  background: transparent;
+  width: 10rem;
+}
+
+.movie-div img {
+  width: 80%;
+}
+
+.movie-div p {
+  display: none;
+}

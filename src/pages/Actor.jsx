@@ -23,7 +23,23 @@ const Actor = () => {
 
   return (
     <>
-      <p>skådespelarsida</p>
+      {data && (
+        <div>
+          <img src={`https://image.tmdb.org/t/p/w200${data.profile_path}`} />
+          <h2>{data.name}</h2>
+          <p>{data.biography}</p>
+          <div className="actor-cast-container">
+            {data.credits.cast.map((movie) => (
+              <div>
+                <img
+                  src={`https://image.tmdb.org/t/p/w200${movie.backdrop_path}`}
+                />
+                <Link to={`/movie/${movie.id}`}>{movie.original_title}</Link>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
     </>
   );
 };

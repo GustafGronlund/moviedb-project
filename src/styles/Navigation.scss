@@ -1,0 +1,25 @@
+header {
+  position: sticky;
+  top: 0;
+}
+
+nav {
+  border-top: 1px solid black;
+  margin-top: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  padding: 0 3% 0 3%;
+}
+
+nav a {
+  font-size: 1rem;
+  text-decoration: none;
+  color: black;
+}
+
+nav div a {
+  text-decoration: none;
+  padding: 0 1.5% 0 1.5%;
+}
