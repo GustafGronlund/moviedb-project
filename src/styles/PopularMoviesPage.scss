@@ -5,10 +5,31 @@
   justify-content: center;
 }
 
-.movie-div {
-  width: 50%;
-}
+// .movie-div {
+//   width: 50%;
+// }
 
-.movie-div img {
-  width: 60%;
+// .movie-div img {
+//   width: 60%;
+// }
+
+// .movie-div a {
+//   width: none;
+// }
+
+@media all and (max-width: 480px) {
+  .popularMovies {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .movie-div {
+    padding: 0 2rem 0 2rem;
+  }
+
+  .movie-div img {
+    width: 100%;
+  }
 }

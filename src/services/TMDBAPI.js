@@ -11,6 +11,17 @@ export const get = async (endpoint) => {
   return response.data;
 };
 
+// get movie based on genre
+export const discoverMovies = ({ queryKey }) => {
+  const [_key, page, genre] = queryKey;
+  return get(`/discover/movie${API_KEY}
+		${sort ? "&sort_by=" + sort : ""}
+		&include_adult=false
+		&include_video=false
+		&page=${page}
+		${genre ? "&with_genres=" + genre : ""}`);
+};
+
 // get all the popular movies
 export const getPopularMovies = () => {
   return get(`${axios.defaults.baseURL}/movie/popular${API_KEY}${adultCont}`);

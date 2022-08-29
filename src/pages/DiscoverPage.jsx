@@ -1,8 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Discover from "../components/Discover";
 
 const DiscoverPage = () => {
-  return <div>hämta baserat på genre</div>;
+  return (
+    <>
+      <Discover />
+    </>
+  );
 };
 
 export default DiscoverPage;

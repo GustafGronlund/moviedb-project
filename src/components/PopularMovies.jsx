@@ -1,6 +1,6 @@
 import React from "react";
 import { useQuery } from "react-query";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import Marquee from "react-fast-marquee";
 import * as api from "../services/TMDBAPI";
 
@@ -34,15 +34,9 @@ const PopularMovies = () => {
         > */}
         {data?.results.map((movie) => (
           <div className="movie-div">
-            <img src={`${imgUrl}${movie.poster_path}`} />
-            <Link
-              to={`/movie/${movie.id}`}
-              onClick={() => {
-                console.log(movie.id);
-              }}
-            >
-              {movie.original_title}
-            </Link>
+            <NavLink to={`/movie/${movie.id}`}>
+              <img src={`${imgUrl}${movie.poster_path}`} />
+            </NavLink>
             <p key={movie.id}>{movie.original_title}</p>
           </div>
         ))}

@@ -4,13 +4,13 @@ import { Link } from "react-router-dom";
 import Marquee from "react-fast-marquee";
 import * as api from "../services/TMDBAPI";
 
-const NowPlayingMovies = () => {
+const PopularMovies = () => {
   // länk till movies-id
   const imgUrl = "https://image.tmdb.org/t/p/w500";
   // popular-movies är nyckel i cache för att separera mot andra querys, nästa är api-call
   const { data, isLoading, isError, error } = useQuery(
-    "nowplaying-movies",
-    api.getLatestMovies
+    ["discover-movies"],
+    api.discoverMovies
   );
   console.log("datan:", data);
 
@@ -24,7 +24,7 @@ const NowPlayingMovies = () => {
 
   return (
     <>
-      <h4>20 most now playing movies xD</h4>
+      <h4>20 most popular movies</h4>
       <section className="popularMovies">
         {/* <Marquee
           pauseOnHover={true}
@@ -34,17 +34,14 @@ const NowPlayingMovies = () => {
         > */}
         {data?.results.map((movie) => (
           <div className="movie-div">
-            <img
-              to={`/movie/${movie.id}`}
-              src={`${imgUrl}${movie.poster_path}`}
-            />
+            <img src={`${imgUrl}${movie.poster_path}`} />
             <Link
               to={`/movie/${movie.id}`}
               onClick={() => {
                 console.log(movie.id);
               }}
             >
-              Read more
+              {movie.original_title}
             </Link>
             <p key={movie.id}>{movie.original_title}</p>
           </div>
@@ -55,4 +52,4 @@ const NowPlayingMovies = () => {
   );
 };
 
-export default NowPlayingMovies;
+export default PopularMovies;

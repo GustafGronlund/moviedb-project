@@ -8,7 +8,7 @@ import PopularMoviesPage from "./pages/PopularMoviesPage";
 import TopRatedMoviesPage from "./pages/TopRatedMoviesPage";
 import DiscoverPage from "./pages/DiscoverPage";
 import Movie from "./pages/Movie";
-import Actor from "./pages/Actor";
+import ActorPage from "./pages/ActorPage";
 // import "./assets/scss/App.scss";
 import "./styles/App.scss";
 import useWindowSize from "./hooks/useWindowSize";
@@ -25,7 +25,7 @@ function App() {
         <Route path="/topratedmovies" element={<TopRatedMoviesPage />} />
         <Route path="/discover" element={<DiscoverPage />} />
         <Route path="/movie/:id" element={<Movie />} />
-        <Route path="actor/:id" element={<Actor />} />
+        <Route path="actor/:id" element={<ActorPage />} />
       </Routes>
     </div>
   );
