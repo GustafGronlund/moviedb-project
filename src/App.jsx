@@ -11,7 +11,6 @@ import Movie from "./pages/Movie";
 import ActorPage from "./pages/ActorPage";
 // import "./assets/scss/App.scss";
 import "./styles/App.scss";
-import useWindowSize from "./hooks/useWindowSize";
 
 function App() {
   return (

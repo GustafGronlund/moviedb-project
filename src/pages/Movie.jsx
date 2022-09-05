@@ -6,7 +6,7 @@ import "../styles/Movie.scss";
 
 const Movie = () => {
   const { id } = useParams();
-  const imgUrl = "https://image.tmdb.org/t/p/w500";
+  const imgUrl = "https://image.tmdb.org/t/p/w300";
   const { data, isLoading, isError, error } = useQuery(
     ["single-movie", id],
     api.getMovie
@@ -25,21 +25,17 @@ const Movie = () => {
   return (
     <>
       {data && (
-        <div className="movie-actor-hero">
+        <div className="movie-page-container">
           <img src={`${imgUrl}${data.backdrop_path}`} />
           <h1>{data.original_title}</h1>
-          <div className="small-info-container">
+          <div className="movie-small-info-container">
             <p>Release date: {data.release_date}</p>
-            <div>
-              {data.genres.map((genre) => (
-                <p>{genre.name}</p>
-              ))}
-            </div>
+            <p>Imdb: {data.vote_average}</p>
           </div>
-          <p>{data.overview}</p>
-          <div className="actors-container">
+          <p className="movie-biography">{data.overview}</p>
+          <div className="movie-actors-container">
             {data.credits.cast.map((actor) => (
-              <div classname="cast-person-container">
+              <div className="movie-cast-person-container">
                 <img
                   src={`https://image.tmdb.org/t/p/w200${actor.profile_path}`}
                 />

@@ -6,14 +6,22 @@
   box-sizing: border-box;
 }
 
+body,
+html {
+  background-color: black;
+  width: 100%;
+}
+
 h1,
 h2,
 h3,
 h4 {
   font-family: "Montserrat", sans-serif;
+  color: white;
 }
 
 p,
 a {
   font-family: "Hind", sans-serif;
+  color: white;
 }

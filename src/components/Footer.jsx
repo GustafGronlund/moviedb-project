@@ -1,13 +1,21 @@
 import React from "react";
 import "../styles/Footer.scss";
 
-const Footer = ({ page, totalPages, turnPage, genre, category, sort }) => {
+const Footer = () => {
+  const [page, setPage] = useSate();
+
+  const nextPage = () => setPage((prev) => prev + 1);
+  const prevPage = () => setPage((prev) => prev - 1);
+
   return (
     <>
       <footer>
-        <button>previous</button>
-        <span>{page} / totalPages</span>
-        <button>next</button>
+        <button onClick={prevPage} disabled={page === 1}>
+          prev page
+        </button>
+        <button onClick={nextPage} disabled={!posts.length}>
+          next page
+        </button>
       </footer>
     </>
   );

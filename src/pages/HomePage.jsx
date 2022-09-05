@@ -5,7 +5,13 @@ import "../styles/HomePage.scss";
 const HomePage = () => {
   return (
     <div>
-      <p>yeah this is the landing page</p>
+      <section className="hero-section">
+        <p>Welcome to this page.</p>
+        <p>
+          Click on the menu to explore movies, it's all fetched from tmdb api.
+        </p>
+        <p>This page is created with React. :)</p>
+      </section>
     </div>
   );
 };

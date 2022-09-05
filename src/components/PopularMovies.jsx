@@ -26,14 +26,8 @@ const PopularMovies = () => {
     <>
       <h4>20 most popular movies</h4>
       <section className="popularMovies">
-        {/* <Marquee
-          pauseOnHover={true}
-          direction="right"
-          speed={30}
-          gradient={false}
-        > */}
         {data?.results.map((movie) => (
-          <div className="movie-div">
+          <div className="popular-movie-div">
             <NavLink to={`/movie/${movie.id}`}>
               <img src={`${imgUrl}${movie.poster_path}`} />
             </NavLink>

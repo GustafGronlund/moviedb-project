@@ -1,35 +1,22 @@
-.popularMovies {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-}
-
-// .movie-div {
-//   width: 50%;
-// }
-
-// .movie-div img {
-//   width: 60%;
-// }
-
-// .movie-div a {
-//   width: none;
-// }
-
 @media all and (max-width: 480px) {
   .popularMovies {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
+    flex-direction: row;
   }
 
-  .movie-div {
-    padding: 0 2rem 0 2rem;
+  // .popular-movie-div {
+  //   padding: 0 2rem 0 2rem;
+  // }
+
+  .popular-movie-div img {
+    width: 40%;
+    border-radius: 1rem;
   }
 
-  .movie-div img {
-    width: 100%;
-  }
+  // .popular-movie-div a {
+  //   display: none;
+  // }
 }
