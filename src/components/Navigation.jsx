@@ -32,12 +32,12 @@ const Navigation = () => {
           <MdMovie /> Film_API
         </Link>
         <nav className="menu-desktop">
-          <div>
+          <ul>
             <Link to="/popularmovies">Popular</Link>
-            <Link to="/nowplaying">NowPlaying</Link>
-            <Link to="/topratedmovies">TopRated</Link>
+            <Link to="/nowplaying">Now Playing</Link>
+            <Link to="/topratedmovies">Top Rated</Link>
             <Link to="/discover">Discover</Link>
-          </div>
+          </ul>
         </nav>
         <div className="mobile-menu-container">
           <a onClick={mobileMenuActive} className="mobile-menu-btn">

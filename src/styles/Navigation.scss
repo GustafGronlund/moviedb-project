@@ -1,3 +1,50 @@
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5% 3% 1.5% 3%;
+}
+
+.mobile-menu-container {
+  display: none;
+}
+
+.mobile-menu-false {
+  display: none;
+}
+
+.menu-desktop {
+  width: 30%;
+}
+
+.header-logo {
+  text-decoration: none;
+}
+
+.header-logo a {
+  padding: 0 3% 0 3%;
+  transition: 0.3s all ease-in-out;
+}
+
+ul {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.menu-desktop a {
+  text-decoration: none;
+  transition: 0.3s all ease-in-out;
+}
+
+.header-logo a {
+  opacity: 0.6;
+}
+
+.menu-desktop a:hover {
+  opacity: 0.6;
+}
+
 @media all and (max-width: 480px) {
   .menu-desktop {
     display: none;
