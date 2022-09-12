@@ -3,6 +3,7 @@ import { useQuery } from "react-query";
 import { Link, NavLink } from "react-router-dom";
 import Marquee from "react-fast-marquee";
 import * as api from "../services/TMDBAPI";
+import gsap from "gsap";
 
 const PopularMovies = () => {
   // länk till movies-id
@@ -42,28 +43,34 @@ const PopularMovies = () => {
 
   return (
     <>
-      <h4>20 most popular movies</h4>
-      <section className="popularMovies">
-        {data?.results.map((movie) => (
-          <div className="popular-movie-div link">
-            <img
-              className="popular-movie-poster"
-              src={`${imgUrl}${movie.poster_path}`}
-            />
-            <NavLink className="popular-movie-title" to={`/movie/${movie.id}`}>
-              <p key={movie.id}>{movie.original_title}</p>
-            </NavLink>
-            <div className="hover-reveal image01">
+      <section className="popular-movies-container">
+        <div className="site-title">
+          <h4 className="site-title-text">POPULAR</h4>
+        </div>
+        <section className="popularMovies">
+          {data?.results.map((movie) => (
+            <div className="popular-movie-div link">
               <img
+                className="popular-movie-poster"
                 src={`${imgUrl}${movie.poster_path}`}
-                alt="movie-poster"
-                className="hidden-img"
               />
+              <NavLink
+                className="popular-movie-title"
+                to={`/movie/${movie.id}`}
+              >
+                <p key={movie.id}>{movie.original_title}</p>
+              </NavLink>
+              <div className="hover-reveal image01">
+                <img
+                  src={`${imgUrl}${movie.poster_path}`}
+                  alt="movie-poster"
+                  className="hidden-img"
+                />
+              </div>
+              <p className="popular-movie-overview">{movie.overview}</p>
             </div>
-            <p className="popular-movie-overview">{movie.overview}</p>
-          </div>
-        ))}
-        {/* </Marquee> */}
+          ))}
+        </section>
       </section>
     </>
   );

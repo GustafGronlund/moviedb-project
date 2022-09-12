@@ -11,7 +11,7 @@
   font-size: 6rem;
 }
 
-.popular-movies-container {
+.toprated-movies-container {
   height: 100vh;
   position: fixed;
   top: 0;
@@ -21,21 +21,21 @@
   flex-direction: column;
 }
 
-.popularMovies {
+.topratedMovies {
   display: flex;
   overflow-x: scroll;
 }
 
-.popular-movie-title {
+.toprated-movie-title {
   font-size: 2rem;
   text-decoration: none;
 }
 
-.popular-movie-overview {
+.toprated-movie-overview {
   font-size: 1rem;
 }
 
-.popular-movie-div {
+.toprated-movie-div {
   min-width: 30%;
   padding: 0 1.5% 0 1.5%;
   display: flex;
@@ -43,7 +43,7 @@
   border-left: 1px solid white;
 }
 
-.popular-movie-poster {
+.toprated-movie-poster {
   display: none;
 }
 
@@ -72,7 +72,7 @@
 }
 
 @media all and (max-width: 480px) {
-  .popular-movies-container {
+  .toprated-movies-container {
     position: static;
     padding-left: 3%;
   }
@@ -82,7 +82,7 @@
     margin-bottom: 3%;
   }
 
-  .popularMovies {
+  .topratedMovies {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -90,15 +90,15 @@
     flex-direction: row;
   }
 
-  .popular-movie-div {
+  .toprated-movie-div {
     margin-bottom: 24%;
 
-    .popular-movie-title {
+    .toprated-movie-title {
       margin-bottom: 3%;
     }
   }
 
-  .popular-movie-div img {
+  .toprated-movie-div img {
     width: 40%;
     border-radius: 1rem;
   }

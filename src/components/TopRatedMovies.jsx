@@ -1,8 +1,9 @@
 import React from "react";
 import { useQuery } from "react-query";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import Marquee from "react-fast-marquee";
 import * as api from "../services/TMDBAPI";
+import "../styles/TopRatedMovies.scss";
 
 const TopRatedMovies = () => {
   // länk till movies-id
@@ -14,6 +15,24 @@ const TopRatedMovies = () => {
   );
   console.log("datan:", data);
 
+  const link = document.querySelectorAll(".link");
+  const hoverReveal = document.querySelectorAll(".hover-reveal");
+  const linkImages = document.querySelectorAll(".hidden-img");
+
+  for (let i = 0; i < link.length; i++) {
+    link[i].addEventListener("mousemove", (e) => {
+      hoverReveal[i].style.opacity = 1;
+      hoverReveal[i].style.transform = `translate(-100%, -50%) rotate(5deg)`;
+      linkImages[i].style.transform = "scale(1,1)";
+      hoverReveal[i].style.left = e.clientX + "px";
+    });
+    link[i].addEventListener("mouseleave", (e) => {
+      hoverReveal[i].style.opacity = 0;
+      hoverReveal[i].style.transform = `translate(-50%, -50%) rotate(-5deg)`;
+      linkImages[i].style.transform = "scale(0.8, 0.8)";
+    });
+  }
+
   if (isLoading) {
     return "it's loading";
   }
@@ -24,29 +43,34 @@ const TopRatedMovies = () => {
 
   return (
     <>
-      <h4>20 most top rated movies xD</h4>
-      <section className="popularMovies">
-        {/* <Marquee
-          pauseOnHover={true}
-          direction="right"
-          speed={30}
-          gradient={false}
-        > */}
-        {data?.results.map((movie) => (
-          <div className="movie-div">
-            <img src={`${imgUrl}${movie.poster_path}`} />
-            <Link
-              to={`/movie/${movie.id}`}
-              onClick={() => {
-                console.log(movie.id);
-              }}
-            >
-              {movie.original_title}
-            </Link>
-            <p key={movie.id}>{movie.original_title}</p>
-          </div>
-        ))}
-        {/* </Marquee> */}
+      <section className="toprated-movies-container">
+        <div className="site-title">
+          <h4 className="site-title-text">TOP RATED</h4>
+        </div>
+        <section className="topratedMovies">
+          {data?.results.map((movie) => (
+            <div className="toprated-movie-div link">
+              <img
+                className="toprated-movie-poster"
+                src={`${imgUrl}${movie.poster_path}`}
+              />
+              <NavLink
+                className="toprated-movie-title"
+                to={`/movie/${movie.id}`}
+              >
+                <p key={movie.id}>{movie.original_title}</p>
+              </NavLink>
+              <div className="hover-reveal image01">
+                <img
+                  src={`${imgUrl}${movie.poster_path}`}
+                  alt="movie-poster"
+                  className="hidden-img"
+                />
+              </div>
+              <p className="toprated-movie-overview">{movie.overview}</p>
+            </div>
+          ))}
+        </section>
       </section>
     </>
   );

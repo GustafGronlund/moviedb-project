@@ -1,8 +1,12 @@
 header {
+  width: 100vw;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 1.5% 3% 1.5% 3%;
+  position: sticky;
+  top: 0;
+  z-index: 2;
 }
 
 .mobile-menu-container {
@@ -14,7 +18,7 @@ header {
 }
 
 .menu-desktop {
-  width: 30%;
+  width: 40%;
 }
 
 .header-logo {
@@ -65,6 +69,7 @@ ul {
     position: sticky;
     top: 0;
     z-index: 2;
+    margin-bottom: 0%;
   }
 
   header a {

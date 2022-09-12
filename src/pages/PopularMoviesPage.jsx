@@ -6,26 +6,10 @@ import "../styles/PopularMoviesPage.scss";
 import Footer from "../components/Footer";
 
 const PopularMoviesPage = () => {
-  // const [pageTitle, setPageTitle] = useState("Action");
-  // const [searchParams, setSearchParams] = useSearchParams({
-  //   page: 1,
-  //   genre: 28,
-  //   sort: "",
-  // });
-  // const page = searchParams.get("page");
-  // const genre = searchParams.get("genre");
-  // const sort = searchParams.get("sort");
-
   return (
     <div>
       <PopularMovies />
-      {/* <Footer
-        page={page}
-        genre={genre}
-        sort={sort}
-        totalPages={data.total_pages}
-        turnPage={setSearchParams}
-      /> */}
+      <footer></footer>
     </div>
   );
 };

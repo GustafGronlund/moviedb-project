@@ -1,8 +1,9 @@
 import React from "react";
 import { useQuery } from "react-query";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import Marquee from "react-fast-marquee";
 import * as api from "../services/TMDBAPI";
+import "../styles/NowPlayingMovies.scss";
 
 const NowPlayingMovies = () => {
   // länk till movies-id
@@ -14,6 +15,24 @@ const NowPlayingMovies = () => {
   );
   console.log("datan:", data);
 
+  const link = document.querySelectorAll(".link");
+  const hoverReveal = document.querySelectorAll(".hover-reveal");
+  const linkImages = document.querySelectorAll(".hidden-img");
+
+  for (let i = 0; i < link.length; i++) {
+    link[i].addEventListener("mousemove", (e) => {
+      hoverReveal[i].style.opacity = 1;
+      hoverReveal[i].style.transform = `translate(-100%, -50%) rotate(5deg)`;
+      linkImages[i].style.transform = "scale(1,1)";
+      hoverReveal[i].style.left = e.clientX + "px";
+    });
+    link[i].addEventListener("mouseleave", (e) => {
+      hoverReveal[i].style.opacity = 0;
+      hoverReveal[i].style.transform = `translate(-50%, -50%) rotate(-5deg)`;
+      linkImages[i].style.transform = "scale(0.8, 0.8)";
+    });
+  }
+
   if (isLoading) {
     return "it's loading";
   }
@@ -24,32 +43,34 @@ const NowPlayingMovies = () => {
 
   return (
     <>
-      <h4>20 most now playing movies xD</h4>
-      <section className="popularMovies">
-        {/* <Marquee
-          pauseOnHover={true}
-          direction="right"
-          speed={30}
-          gradient={false}
-        > */}
-        {data?.results.map((movie) => (
-          <div className="movie-div">
-            <img
-              to={`/movie/${movie.id}`}
-              src={`${imgUrl}${movie.poster_path}`}
-            />
-            <Link
-              to={`/movie/${movie.id}`}
-              onClick={() => {
-                console.log(movie.id);
-              }}
-            >
-              Read more
-            </Link>
-            <p key={movie.id}>{movie.original_title}</p>
-          </div>
-        ))}
-        {/* </Marquee> */}
+      <section className="nowplaying-movies-container">
+        <div className="site-title">
+          <h4 className="site-title-text">NOW PLAYING</h4>
+        </div>
+        <section className="nowplayingMovies">
+          {data?.results.map((movie) => (
+            <div className="nowplaying-movie-div link">
+              <img
+                className="nowplaying-movie-poster"
+                src={`${imgUrl}${movie.poster_path}`}
+              />
+              <NavLink
+                to={`/movie/${movie.id}`}
+                className="nowplaying-movie-title"
+              >
+                <p key={movie.id}>{movie.original_title}</p>
+              </NavLink>
+              <div className="hover-reveal image01">
+                <img
+                  src={`${imgUrl}${movie.poster_path}`}
+                  alt="movie-poster"
+                  className="hidden-img"
+                />
+              </div>
+              <p className="popular-movie-overview">{movie.overview}</p>
+            </div>
+          ))}
+        </section>
       </section>
     </>
   );

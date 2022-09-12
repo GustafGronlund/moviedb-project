@@ -6,11 +6,11 @@ const HomePage = () => {
   return (
     <div>
       <section className="hero-section">
-        <p>Welcome to this page.</p>
-        <p>
-          Click on the menu to explore movies, it's all fetched from tmdb api.
-        </p>
-        <p>This page is created with React. :)</p>
+        <h1>HOMEPAGE</h1>
+        <h3>
+          Click on the menu to explore movies, it's all fetched from TMDB API.
+        </h3>
+        <h3>This page is created with React. :)</h3>
       </section>
     </div>
   );
