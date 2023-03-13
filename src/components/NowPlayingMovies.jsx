@@ -1,18 +1,20 @@
 import React from "react";
-import { useQuery } from "react-query";
-import { Link, NavLink } from "react-router-dom";
-import Marquee from "react-fast-marquee";
-import * as api from "../services/TMDBAPI";
+import { NavLink, useSearchParams, useNavigate } from "react-router-dom";
 import "../styles/NowPlayingMovies.scss";
+import useGetNowPlaying from "../hooks/useGetNowPlaying";
+import Pagination from "./pagination";
+
+// TODO : På pc så när man scrollar höger eller nedåt så scrollas container för desktop till höger, vice verse med vänster
 
 const NowPlayingMovies = () => {
-  // länk till movies-id
+  const [searchParams, setSearchParams] = useSearchParams({ page: 1 });
+  const page = searchParams.get("page")
+    ? Number(searchParams.get("page"))
+    : null;
+  const navigate = useNavigate();
+  const { data: data, isLoading } = useGetNowPlaying(page);
   const imgUrl = "https://image.tmdb.org/t/p/w500";
-  // popular-movies är nyckel i cache för att separera mot andra querys, nästa är api-call
-  const { data, isLoading, isError, error } = useQuery(
-    "nowplaying-movies",
-    api.getLatestMovies
-  );
+
   console.log("datan:", data);
 
   const link = document.querySelectorAll(".link");
@@ -35,10 +37,6 @@ const NowPlayingMovies = () => {
 
   if (isLoading) {
     return "it's loading";
-  }
-
-  if (isError) {
-    return "something went wrong";
   }
 
   return (
@@ -71,6 +69,14 @@ const NowPlayingMovies = () => {
             </div>
           ))}
         </section>
+        <Pagination
+          page={data.page}
+          numPages={Math.ceil(data.total_pages)}
+          hasPreviousPage={data.page !== 1}
+          hasNextPage={data.page !== data.total_pages}
+          onPreviousPage={() => setSearchParams({ page: -1 })}
+          onNextPage={() => setSearchParams({ page: page + 1 })}
+        />
       </section>
     </>
   );

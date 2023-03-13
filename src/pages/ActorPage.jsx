@@ -1,23 +1,14 @@
 import React from "react";
 import { Link, useParams } from "react-router-dom";
-import { useQuery } from "react-query";
-import * as api from "../services/TMDBAPI";
 import "../styles/ActorPage.scss";
+import useGetActor from "../hooks/useGetActor";
 
 const ActorPage = () => {
   const { id } = useParams();
-
-  const { data, isLoading, isError, error } = useQuery(
-    ["single-actor", id],
-    api.getActor
-  );
+  const { data: data, isLoading } = useGetActor(id);
 
   if (isLoading) {
     return "loading s0 sl0w... :(";
-  }
-
-  if (isError) {
-    return "error :/";
   }
 
   console.log(data);
@@ -30,7 +21,7 @@ const ActorPage = () => {
           <h2>{data.name}</h2>
           <p>{data.biography}</p>
           <div className="actor-cast-container">
-            {data.credits.cast.map((movie) => (
+            {data.movie_credits.cast.map((movie) => (
               <div>
                 <img
                   src={`https://image.tmdb.org/t/p/w200${movie.backdrop_path}`}

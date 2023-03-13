@@ -28,6 +28,7 @@
 
     .movie-biography {
       margin-bottom: 6%;
+      font-family: "Hind", sans-serif;
     }
     h1 {
       margin-bottom: 6%;
@@ -60,6 +61,7 @@
 
         a {
           text-decoration: none;
+          font-family: "Hind", sans-serif;
         }
 
         img {
@@ -82,25 +84,57 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    padding-bottom: 6rem;
 
     .movie-page-img-container {
       width: 100%;
-      margin-bottom: 6%;
       img {
-        width: 40%;
+        width: 90%;
+        border-radius: 1rem;
       }
     }
 
     .movie-page-second-container {
       width: 100%;
+      align-items: normal;
+
+      .movie-biography {
+        padding-bottom: 6rem;
+      }
 
       .movie-small-info-container {
         width: 100%;
-        margin-bottom: 6%;
+        padding-bottom: 1.5rem;
+        flex-direction: column;
       }
 
       .movie-biography {
         margin-bottom: 6%;
+      }
+
+      h1 {
+        margin-bottom: 0;
+        padding: 3rem 0 1.5rem 0;
+      }
+
+      .release-date-container {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        p:nth-child(1) {
+          font-weight: bold;
+          padding-bottom: 1rem;
+        }
+      }
+
+      .vote-average-container {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+
+        p:nth-child(1) {
+          font-weight: bold;
+        }
       }
 
       .movie-actors-container {
@@ -117,6 +151,7 @@
             text-decoration: none;
           }
           img {
+            border-radius: 1rem;
             width: 150px;
             padding-bottom: 6%;
           }

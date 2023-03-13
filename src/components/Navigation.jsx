@@ -29,7 +29,7 @@ const Navigation = () => {
     <>
       <header>
         <Link className="header-logo" to="/">
-          <MdMovie /> Film_API
+          <MdMovie className="header-logo-title" /> Film_API
         </Link>
         <nav className="menu-desktop">
           <ul>
