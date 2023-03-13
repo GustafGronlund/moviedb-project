@@ -1,19 +1,17 @@
 import React from "react";
-import { useQuery } from "react-query";
-import { Link, NavLink } from "react-router-dom";
-import Marquee from "react-fast-marquee";
-import * as api from "../services/TMDBAPI";
-import gsap from "gsap";
+import { useNavigate, useSearchParams, NavLink } from "react-router-dom";
+import Pagination from "./pagination";
+import usePopular from "../hooks/usePopular";
 
 const PopularMovies = () => {
-  // länk till movies-id
+  const [searchParams, setSearchParams] = useSearchParams({ page: 1 });
+  const page = searchParams.get("page")
+    ? Number(searchParams.get("page"))
+    : null;
+  const navigate = useNavigate();
+  const { data: movies, isLoading } = usePopular(page);
+  console.log(movies);
   const imgUrl = "https://image.tmdb.org/t/p/w500";
-  // popular-movies är nyckel i cache för att separera mot andra querys, nästa är api-call
-  const { data, isLoading, isError, error } = useQuery(
-    "popular-movies",
-    api.getPopularMovies
-  );
-  console.log("datan:", data);
 
   const link = document.querySelectorAll(".link");
   const hoverReveal = document.querySelectorAll(".hover-reveal");
@@ -34,11 +32,7 @@ const PopularMovies = () => {
   }
 
   if (isLoading) {
-    return "it's loading";
-  }
-
-  if (isError) {
-    return "something went wrong";
+    return "It's loading";
   }
 
   return (
@@ -48,18 +42,23 @@ const PopularMovies = () => {
           <h4 className="site-title-text">POPULAR</h4>
         </div>
         <section className="popularMovies">
-          {data?.results.map((movie) => (
+          {movies?.results.map((movie) => (
             <div className="popular-movie-div link">
-              <img
-                className="popular-movie-poster"
-                src={`${imgUrl}${movie.poster_path}`}
-              />
+              <div className="popular-movie-poster-container">
+                <img
+                  className="popular-movie-poster"
+                  src={`${imgUrl}${movie.poster_path}`}
+                />
+              </div>
               <NavLink
                 className="popular-movie-title"
                 to={`/movie/${movie.id}`}
               >
                 <p key={movie.id}>{movie.original_title}</p>
               </NavLink>
+              {/* // TODO : Sätt genre här
+              <div>${movie.genre_ids}</div> */}
+              <div></div>
               <div className="hover-reveal image01">
                 <img
                   src={`${imgUrl}${movie.poster_path}`}
@@ -71,6 +70,14 @@ const PopularMovies = () => {
             </div>
           ))}
         </section>
+        <Pagination
+          page={movies.page}
+          numPages={Math.ceil(movies.total_pages)}
+          hasPreviousPage={movies.page !== 1}
+          hasNextPage={movies.page !== movies.total_pages}
+          onPreviousPage={() => setSearchParams({ page: -1 })}
+          onNextPage={() => setSearchParams({ page: page + 1 })}
+        />
       </section>
     </>
   );

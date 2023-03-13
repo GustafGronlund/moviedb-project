@@ -9,6 +9,7 @@ import TopRatedMoviesPage from "./pages/TopRatedMoviesPage";
 import DiscoverPage from "./pages/DiscoverPage";
 import Movie from "./pages/Movie";
 import ActorPage from "./pages/ActorPage";
+import { ReactQueryDevtools } from "react-query/devtools";
 // import "./assets/scss/App.scss";
 import "./styles/App.scss";
 
@@ -16,6 +17,7 @@ function App() {
   return (
     <div id="App">
       <Navigation />
+
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="*" element={<NotFound />} />
@@ -26,6 +28,9 @@ function App() {
         <Route path="/movie/:id" element={<Movie />} />
         <Route path="actor/:id" element={<ActorPage />} />
       </Routes>
+      {/* <ReactQueryDevTools /> */}
+
+      <ReactQueryDevtools position="bottom-right" />
     </div>
   );
 }

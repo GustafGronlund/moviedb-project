@@ -1,0 +1,28 @@
+.pagination {
+  position: fixed;
+  bottom: 0;
+  //   background-color: blue;
+  width: 50rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 3rem;
+}
+
+@media all and (max-width: 480px) {
+  .pagination {
+    justify-content: space-between;
+    background-color: rgba(249, 249, 249, 0.8);
+    width: 40%;
+    border-radius: 1rem;
+    top: 90%;
+  }
+
+  .current-page {
+    font-weight: bold;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+}

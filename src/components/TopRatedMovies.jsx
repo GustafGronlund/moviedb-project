@@ -1,19 +1,26 @@
 import React from "react";
-import { useQuery } from "react-query";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate, useSearchParams } from "react-router-dom";
 import Marquee from "react-fast-marquee";
 import * as api from "../services/TMDBAPI";
 import "../styles/TopRatedMovies.scss";
+import useGetTopRated from "../hooks/useGetTopRated";
 
 const TopRatedMovies = () => {
+  const [searchParams, setSearchParams] = useSearchParams({ page: 1 });
+  const page = searchParams.get("page")
+    ? Number(searchParams.get("page"))
+    : null;
+  const navigate = useNavigate();
+  const { data: movies, isLoading } = useGetTopRated(page);
+
   // länk till movies-id
   const imgUrl = "https://image.tmdb.org/t/p/w500";
   // popular-movies är nyckel i cache för att separera mot andra querys, nästa är api-call
-  const { data, isLoading, isError, error } = useQuery(
-    "toprated-movies",
-    api.getTopRatedMovies
-  );
-  console.log("datan:", data);
+  // const { data, isLoading, isError, error } = useQuery(
+  //   "toprated-movies",
+  //   api.getTopRatedMovies
+  // );
+  console.log("datan:", movies);
 
   const link = document.querySelectorAll(".link");
   const hoverReveal = document.querySelectorAll(".hover-reveal");
@@ -37,10 +44,6 @@ const TopRatedMovies = () => {
     return "it's loading";
   }
 
-  if (isError) {
-    return "something went wrong";
-  }
-
   return (
     <>
       <section className="toprated-movies-container">
@@ -48,7 +51,7 @@ const TopRatedMovies = () => {
           <h4 className="site-title-text">TOP RATED</h4>
         </div>
         <section className="topratedMovies">
-          {data?.results.map((movie) => (
+          {movies?.results.map((movie) => (
             <div className="toprated-movie-div link">
               <img
                 className="toprated-movie-poster"

@@ -1,56 +1,70 @@
 import axios from "axios";
 
 axios.defaults.baseURL = "https://api.themoviedb.org/3";
-const API_KEY = "?api_key=870af7a7e82a463bd2c88eb97fc1f3e1&language=en-US";
-const adultCont = "&include_adult=false";
-const credits = "&append_to_response=credits";
+const BASE_URL = "https://api.themoviedb.org/3";
+const IMAGE_BASE_URL = "https://image.tmdb.org/t/p";
 
-export const get = async (endpoint) => {
-  const response = await axios.get(endpoint);
-
-  return response.data;
+const requestOptions = {
+  params: {
+    api_key: import.meta.env.VITE_API_KEY,
+    language: "en-US",
+    include_adult: false,
+    region: "SE",
+  },
 };
 
-// get movie based on genre
-export const discoverMovies = ({ queryKey }) => {
-  const [_key, page, genre] = queryKey;
-  return get(`/discover/movie${API_KEY}
-		${sort ? "&sort_by=" + sort : ""}
-		&include_adult=false
-		&include_video=false
-		&page=${page}
-		${genre ? "&with_genres=" + genre : ""}`);
+//importing the API-key from .env file
+const API_KEY_IMPORT = import.meta.env.VITE_API_KEY;
+
+//adding API info to the key so I do not need to add it every time
+const API_KEY = `?api_key=${API_KEY_IMPORT}`;
+
+//Creating a variable for not including adult
+const ADULT = "&include_adult=false";
+
+//function that makes the rest of the functions shorter and easier to read ;)
+const get = async (endpoint, options) => {
+  const res = await axios.get(endpoint, options);
+
+  return res.data;
 };
 
-// get all the popular movies
-export const getPopularMovies = () => {
-  return get(`${axios.defaults.baseURL}/movie/popular${API_KEY}${adultCont}`);
+const getPopularMovies = (page = 1) => {
+  return get(`${BASE_URL}/movie/popular?&page=${page}`, requestOptions);
 };
 
-// get all the popular movies
-export const getTopRatedMovies = () => {
-  return get(`${axios.defaults.baseURL}/movie/top_rated${API_KEY}${adultCont}`);
+const getTopRated = (page = 1) => {
+  return get(`${BASE_URL}/movie/top_rated?&page=${page}`, requestOptions);
 };
 
-// get all the latest movies
-export const getLatestMovies = () => {
+const getNowPlaying = (page = 1) => {
+  return get(`${BASE_URL}/movie/now_playing?&page=${page}`, requestOptions);
+};
+
+const getMovie = (id) => {
   return get(
-    `${axios.defaults.baseURL}/movie/now_playing${API_KEY}${adultCont}`
+    `${BASE_URL}/movie/${id}?&append_to_response=credits`,
+    requestOptions
   );
 };
 
-// get specific movie based on id
-export const getMovie = ({ queryKey }) => {
-  const [_key, id] = queryKey;
-
+const getActor = (id) => {
   return get(
-    `${axios.defaults.baseURL}/movie/${id}${API_KEY}${adultCont}${credits}`
+    `${BASE_URL}/person/${id}?append_to_response=movie_credits`,
+    requestOptions
   );
 };
 
-// get specific actor based on id
-export const getActor = ({ queryKey }) => {
-  const [_key, id] = queryKey;
-
-  return get(`${axios.defaults.baseURL}/person/${id}${API_KEY}${credits}`);
+export default {
+  getPopularMovies,
+  getNowPlaying,
+  // getTrending,
+  getTopRated,
+  // getMoviePoster,
+  getMovie,
+  getActor,
+  // getGenres,
+  // getMoviesByGenre,
+  // getRecommended,
+  // getSearchResult,
 };
