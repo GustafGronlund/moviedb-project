@@ -3,6 +3,7 @@ import "../styles/Navigation.scss";
 import { MdMovie } from "react-icons/md";
 import { useState } from "react";
 import { gsap } from "gsap";
+import moviereel from "../assets/scss/gifs/moviereel.gif";
 
 const Navigation = () => {
   const [toggleMenu, setToggleMenu] = useState(false);
@@ -29,7 +30,7 @@ const Navigation = () => {
     <>
       <header>
         <Link className="header-logo" to="/">
-          <MdMovie className="header-logo-title" /> Film_API
+          <img src={moviereel} alt="loading..." />
         </Link>
         <nav className="menu-desktop">
           <ul>

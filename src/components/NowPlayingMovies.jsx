@@ -3,6 +3,7 @@ import { NavLink, useSearchParams, useNavigate } from "react-router-dom";
 import "../styles/NowPlayingMovies.scss";
 import useGetNowPlaying from "../hooks/useGetNowPlaying";
 import Pagination from "./pagination";
+import Scroll from "../hooks/useSmoothScroll";
 
 // TODO : På pc så när man scrollar höger eller nedåt så scrollas container för desktop till höger, vice verse med vänster
 
@@ -45,6 +46,7 @@ const NowPlayingMovies = () => {
         <div className="site-title">
           <h4 className="site-title-text">NOW PLAYING</h4>
         </div>
+
         <section className="nowplayingMovies">
           {data?.results.map((movie) => (
             <div className="nowplaying-movie-div link">
@@ -68,6 +70,7 @@ const NowPlayingMovies = () => {
               <p className="popular-movie-overview">{movie.overview}</p>
             </div>
           ))}
+          <Scroll />
         </section>
         <Pagination
           page={data.page}

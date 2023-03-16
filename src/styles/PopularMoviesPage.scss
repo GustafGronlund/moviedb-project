@@ -10,10 +10,6 @@ p {
 .site-title {
   width: 100%;
   padding: 0 0 0 1.5%;
-  opacity: 1;
-  position: fixed;
-  top: 10%;
-  z-index: 5;
 }
 
 .site-title-text {
@@ -21,25 +17,29 @@ p {
 }
 
 .popular-movies-container {
-  // height: 100vh;
-  // position: fixed;
+  height: 100vh;
+  position: fixed;
   top: 0;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  overflow: scroll;
 }
 
 .popularMovies {
   display: flex;
+  width: 100%;
   overflow-x: scroll;
-  flex-direction: column;
+  height: 100%;
+  scroll-behavior: smooth;
+  flex-direction: row;
 }
 
 .popular-movie-title {
   font-size: 2rem;
   text-decoration: none;
+  font-weight: bold;
+  margin-bottom: 1rem;
 }
 
 .popular-movie-overview {
@@ -47,20 +47,19 @@ p {
 }
 
 .popular-movie-div {
-  min-width: 30%;
+  padding: 0 1.5% 0 1.5%;
   display: flex;
   flex-direction: column;
   border-left: 1px solid white;
-  margin-bottom: 10rem;
-  background-color: lightgrey;
-}
-
-.popular-movie-div p {
-  color: black;
+  justify-content: center;
+  align-items: center;
 }
 
 .popular-movie-poster {
-  display: none;
+  display: block;
+  width: 10rem;
+  margin-bottom: 3rem;
+  border-radius: 1rem;
 }
 
 /* img hover effect */
