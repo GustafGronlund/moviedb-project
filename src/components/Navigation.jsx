@@ -4,6 +4,7 @@ import { MdMovie } from "react-icons/md";
 import { useState } from "react";
 import { gsap } from "gsap";
 import moviereel from "../assets/scss/gifs/moviereel.gif";
+import backgroundGif from "../assets/scss/gifs/background_gif.gif";
 
 const Navigation = () => {
   const [toggleMenu, setToggleMenu] = useState(false);
@@ -37,7 +38,7 @@ const Navigation = () => {
             <Link to="/popularmovies">Popular</Link>
             <Link to="/nowplaying">Now Playing</Link>
             <Link to="/topratedmovies">Top Rated</Link>
-            <Link to="/discover">Discover</Link>
+            <Link to="/genres">Genres</Link>
           </ul>
         </nav>
         <div className="mobile-menu-container">
@@ -46,6 +47,11 @@ const Navigation = () => {
           </a>
         </div>
       </header>
+      <div
+        className={
+          toggleMenu ? "noice-background-true" : "noise-background-false"
+        }
+      ></div>
       <ul className={toggleMenu ? "mobile-menu-true" : "mobile-menu-false"}>
         <Link to="/popularmovies" className="mobile-menu-item">
           Popular
@@ -56,8 +62,8 @@ const Navigation = () => {
         <Link to="/topratedmovies" className="mobile-menu-item">
           Top Rated
         </Link>
-        <Link to="/discover" className="mobile-menu-item">
-          Discover
+        <Link to="/genres" className="mobile-menu-item">
+          Genres
         </Link>
       </ul>
     </>

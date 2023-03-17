@@ -41,6 +41,10 @@ const getNowPlaying = (page = 1) => {
   return get(`${BASE_URL}/movie/now_playing?&page=${page}`, requestOptions);
 };
 
+const getGenres = () => {
+  return get(`${BASE_URL}/genre/movie/list`, requestOptions);
+};
+
 const getMovie = (id) => {
   return get(
     `${BASE_URL}/movie/${id}?&append_to_response=credits`,
@@ -63,7 +67,7 @@ export default {
   // getMoviePoster,
   getMovie,
   getActor,
-  // getGenres,
+  getGenres,
   // getMoviesByGenre,
   // getRecommended,
   // getSearchResult,

@@ -6,7 +6,7 @@ import NotFound from "./pages/NotFound";
 import NowPlayingPage from "./pages/NowPlayingPage";
 import PopularMoviesPage from "./pages/PopularMoviesPage";
 import TopRatedMoviesPage from "./pages/TopRatedMoviesPage";
-import DiscoverPage from "./pages/DiscoverPage";
+import GenresPage from "./pages/GenresPage";
 import Movie from "./pages/Movie";
 import ActorPage from "./pages/ActorPage";
 import { ReactQueryDevtools } from "react-query/devtools";
@@ -24,7 +24,7 @@ function App() {
         <Route path="/nowplaying" element={<NowPlayingPage />} />
         <Route path="/popularmovies" element={<PopularMoviesPage />} />
         <Route path="/topratedmovies" element={<TopRatedMoviesPage />} />
-        <Route path="/discover" element={<DiscoverPage />} />
+        <Route path="/genres" element={<GenresPage />} />
         <Route path="/movie/:id" element={<Movie />} />
         <Route path="actor/:id" element={<ActorPage />} />
       </Routes>
