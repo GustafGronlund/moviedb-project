@@ -1,0 +1,12 @@
+.genresMovies {
+  //   height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.genresMovies > a {
+  margin: 3rem;
+  color: #222;
+  text-decoration: none;
+}
