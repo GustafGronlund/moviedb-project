@@ -1,7 +1,6 @@
-import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import useGetMoviesByGenre from "../hooks/useGetMovieByGenre";
-import Pagination from "../components/Pagination";
+import Pagination from "../components/pagination";
 import { useNavigate, NavLink } from "react-router-dom";
 import { useSearchParams, useLocation } from "react-router-dom";
 import "../styles/SelectedGenresPage.scss";
@@ -15,17 +14,13 @@ const SelectedGenresPage = () => {
   const { data: data, isLoading } = useGetMoviesByGenre(id, page);
   const navigate = useNavigate();
   const location = useLocation();
-  const { genre } = location.state;
   const imgUrl = "https://image.tmdb.org/t/p/w500";
-
-  console.log("Datan: ", data);
-  console.log(genre);
 
   return (
     <>
       <section className="genres-movies-container">
         <div className="site-title">
-          <h4 className="site-title-text">{genre}</h4>
+          <h4 className="site-title-text">{name}</h4>
         </div>
         <section className="genresMovies">
           {data?.results.map((movie) => (
@@ -39,8 +34,6 @@ const SelectedGenresPage = () => {
               <NavLink className="genres-movie-title" to={`/movie/${movie.id}`}>
                 <p key={movie.id}>{movie.original_title}</p>
               </NavLink>
-              {/* // TODO : Sätt genre här
-              <div>${movie.genre_ids}</div> */}
               <div></div>
               <div className="hover-reveal image01">
                 <img
@@ -53,14 +46,14 @@ const SelectedGenresPage = () => {
             </div>
           ))}
         </section>
-        {/* <Pagination
-          page={data.page}
-          numPages={Math.ceil(data.total_pages)}
-          hasPreviousPage={data.page !== 1}
-          hasNextPage={data.page !== data.total_pages}
+        <Pagination
+          page={data?.page}
+          numPages={Math.ceil(data?.total_pages)}
+          hasPreviousPage={data?.page !== 1}
+          hasNextPage={data?.page !== data?.total_pages}
           onPreviousPage={() => setSearchParams({ page: -1 })}
           onNextPage={() => setSearchParams({ page: page + 1 })}
-        /> */}
+        />
       </section>
     </>
   );

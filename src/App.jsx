@@ -1,4 +1,3 @@
-import React, { useRef, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import Navigation from "./components/Navigation";
 import HomePage from "./pages/HomePage";
@@ -10,8 +9,6 @@ import GenresPage from "./pages/GenresPage";
 import SelectedGenresPage from "./pages/SelectedGenresPage";
 import Movie from "./pages/Movie";
 import ActorPage from "./pages/ActorPage";
-import { ReactQueryDevtools } from "react-query/devtools";
-// import "./assets/scss/App.scss";
 import "./styles/App.scss";
 import "./assets/scss/fonts/RoobertTRIAL-Regular.woff";
 
@@ -31,9 +28,6 @@ function App() {
         <Route path="/movie/:id" element={<Movie />} />
         <Route path="actor/:id" element={<ActorPage />} />
       </Routes>
-      {/* <ReactQueryDevTools /> */}
-
-      <ReactQueryDevtools position="bottom-right" />
     </div>
   );
 }

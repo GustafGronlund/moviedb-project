@@ -1,12 +1,7 @@
 import React from "react";
-// import Button from "react-bootstrap/Button";
 import "../styles/Pagination.scss";
-import Stack from "@mui/material/Stack";
-import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
-import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
-import ArrowCircleLeftIcon from "@mui/icons-material/ArrowCircleLeft";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 
 const Pagination = ({
