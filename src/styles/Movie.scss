@@ -8,6 +8,10 @@
   top: 0;
   height: 100vh;
 
+  .bold-text {
+    font-weight: bold;
+  }
+
   .movie-page-img-container {
     width: 50%;
     display: flex;
@@ -15,7 +19,7 @@
     align-items: center;
     height: 100%;
     img {
-      width: 60%;
+      width: 40%;
       border-radius: 1rem;
     }
   }
@@ -61,7 +65,7 @@
       overflow-x: scroll;
       margin-bottom: 3%;
       width: 100%;
-
+      padding: 3rem;
       .movie-cast-person-container {
         margin-right: 3%;
         display: flex;

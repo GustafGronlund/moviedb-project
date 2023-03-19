@@ -31,6 +31,7 @@ p {
 }
 
 .popularMovies {
+  width: 100vw;
   display: flex;
   overflow-x: scroll;
   height: 100%;
@@ -128,8 +129,14 @@ p {
     flex-direction: row;
   }
 
+  .popular-movie-overview {
+    padding: 3rem;
+  }
+
   .popular-movie-div {
     border-radius: 1rem;
+    width: 100%;
+    padding: 0%;
 
     .popular-movie-title {
       display: grid;

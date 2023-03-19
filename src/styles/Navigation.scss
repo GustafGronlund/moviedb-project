@@ -12,6 +12,10 @@ header {
   color: #222222;
 }
 
+.menu-desktop {
+  width: 100%;
+}
+
 .noice-background-true {
   min-height: 100vh;
   min-width: 100%;
@@ -47,11 +51,12 @@ header {
 ul {
   display: flex;
   justify-content: space-between;
-
+  width: 50vw;
+  margin-left: auto;
   a {
     font-size: 1.5rem;
     color: #222222;
-    margin-left: 10rem;
+    font-size: 1.5rem;
   }
 }
 
@@ -66,6 +71,20 @@ ul a:hover {
 
 .header-logo a {
   opacity: 0.6;
+}
+
+@media all and (min-width: 480px) {
+  ul a {
+    font-size: 1rem;
+  }
+
+  .menu-desktop {
+    ul {
+      a {
+        font-size: 1rem;
+      }
+    }
+  }
 }
 
 /* mobile */

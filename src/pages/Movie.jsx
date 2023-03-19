@@ -25,11 +25,11 @@ const Movie = () => {
             <h1>{movie.original_title}</h1>
             <div className="movie-small-info-container">
               <div className="release-date-container">
-                <p>Release date</p>
+                <p className="bold-text">Release date</p>
                 <p>{movie.release_date}</p>
               </div>
               <div className="vote-average-container">
-                <p>Imdb</p>
+                <p className="bold-text">Imdb</p>
                 <p>{movie.vote_average}</p>
               </div>
             </div>
