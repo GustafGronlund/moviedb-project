@@ -42,16 +42,15 @@ const Navigation = () => {
           </ul>
         </nav>
         <div className="mobile-menu-container">
-          <a onClick={mobileMenuActive} className="mobile-menu-btn">
+          {/* <a onClick={mobileMenuActive} className="mobile-menu-btn">
             MENU
-          </a>
+          </a> */}
+          <span className="mobile-menu-line"></span>
+          <span className="mobile-menu-line"></span>
+          <span className="mobile-menu-line"></span>
         </div>
       </header>
-      <div
-        className={
-          toggleMenu ? "noice-background-true" : "noise-background-false"
-        }
-      ></div>
+
       <ul className={toggleMenu ? "mobile-menu-true" : "mobile-menu-false"}>
         <Link to="/popularmovies" className="mobile-menu-item">
           POPULAR
