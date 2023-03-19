@@ -4,6 +4,7 @@ import Marquee from "react-fast-marquee";
 import * as api from "../services/TMDBAPI";
 import "../styles/TopRatedMovies.scss";
 import useGetTopRated from "../hooks/useGetTopRated";
+import Pagination from "../components/pagination";
 
 const TopRatedMovies = () => {
   const [searchParams, setSearchParams] = useSearchParams({ page: 1 });
@@ -74,6 +75,14 @@ const TopRatedMovies = () => {
             </div>
           ))}
         </section>
+        <Pagination
+          page={movies.page}
+          numPages={Math.ceil(movies.total_pages)}
+          hasPreviousPage={movies.page !== 1}
+          hasNextPage={movies.page !== movies.total_pages}
+          onPreviousPage={() => setSearchParams({ page: page - 1 })}
+          onNextPage={() => setSearchParams({ page: page + 1 })}
+        />
       </section>
     </>
   );

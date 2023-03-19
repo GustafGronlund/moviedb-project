@@ -1,4 +1,8 @@
-@import url("https://fonts.googleapis.com/css2?family=Heebo:wght@500&family=Krona+One&family=Lobster&display=swap");
+@font-face {
+  font-family: "Regular"; /*Can be any text*/
+  src: local("RoobertTRIAL-Regular"),
+    url("../assets/scss/fonts/RoobertTRIAL-Regular.woff") format("woff");
+}
 
 * {
   margin: 0;
@@ -17,12 +21,12 @@ h1,
 h2,
 h3,
 h4 {
-  font-family: "Krona one", sans-serif;
+  font-family: "Regular", sans-serif;
   color: white;
 }
 
 p,
 a {
-  font-family: "Hind", sans-serif;
+  font-family: "Regular";
   color: white;
 }

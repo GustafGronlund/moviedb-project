@@ -2,6 +2,11 @@
   height: 100%;
 }
 
+p {
+  color: #222222;
+  line-height: 1.5rem;
+}
+
 .site-title {
   width: 100%;
   padding: 0 0 0 1.5%;
@@ -9,9 +14,13 @@
 
 .site-title-text {
   font-size: 6rem;
+  color: #222222;
+  position: absolute;
+  top: 6rem;
+  left: 3 rem;
 }
 
-.toprated-movies-container {
+.genres-movies-container {
   height: 100vh;
   position: fixed;
   top: 0;
@@ -21,32 +30,32 @@
   flex-direction: column;
 }
 
-.topratedMovies {
+.genresMovies {
   display: flex;
-  width: 100%;
   overflow-x: scroll;
   height: 100%;
   scroll-behavior: smooth;
   flex-direction: row;
 }
 
-.toprated-movie-title {
+.genres-movie-title {
   font-size: 2rem;
   text-decoration: none;
   font-weight: bold;
   margin-bottom: 1rem;
-}
-
-.toprated-movie-title > p {
   color: #222222;
 }
 
-.toprated-movie-overview {
+.genres-movie-title > p {
+  color: #222222;
+}
+
+.genres-movie-overview {
   font-size: 1rem;
   color: #222222;
 }
 
-.toprated-movie-div {
+.genres-movie-div {
   padding: 0 1.5% 0 1.5%;
   display: flex;
   flex-direction: column;
@@ -55,7 +64,7 @@
   align-items: center;
 }
 
-.toprated-movie-poster {
+.genres-movie-poster {
   display: block;
   width: 10rem;
   margin-bottom: 3rem;
@@ -86,22 +95,33 @@
   transition: text-transform 0.5s ease-out;
 }
 
-.toprated-movie-overview {
-  width: 30rem;
-}
-
 @media all and (max-width: 480px) {
-  .toprated-movies-container {
+  .genres-movies-container {
     position: static;
-    padding-left: 3%;
+    padding: 0 10% 0 10%;
+  }
+
+  .genres-movie-poster-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5rem 0 1rem 0;
+  }
+
+  .genres-movie-poster {
+    height: 100%;
+    width: 100%;
+    display: block;
   }
 
   .site-title-text {
     font-size: 3rem;
     margin-bottom: 3%;
+    position: fixed;
   }
 
-  .topratedMovies {
+  .genresMovies {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -109,17 +129,33 @@
     flex-direction: row;
   }
 
-  .toprated-movie-div {
-    margin-bottom: 24%;
+  .genres-movie-div {
+    border-radius: 1rem;
 
-    .toprated-movie-title {
-      margin-bottom: 3%;
+    .genres-movie-title {
+      display: grid;
+      place-content: center;
+      text-align: center;
+      p {
+        padding: 1rem;
+        font-weight: bold;
+      }
     }
   }
 
-  .toprated-movie-div img {
+  .genres-movie-overview {
+    padding: 0 1rem 5rem 1rem;
+    text-align: center;
+    font-family: "Hind", sans-serif;
+  }
+
+  .genres-movie-div img {
     width: 40%;
     border-radius: 1rem;
+    box-shadow: 2.6px 1.5px 3.6px rgba(0, 0, 0, 0.024),
+      7.3px 4.1px 10px rgba(0, 0, 0, 0.035),
+      17.5px 9.9px 24.1px rgba(0, 0, 0, 0.046),
+      58px 33px 80px rgba(0, 0, 0, 0.07);
   }
 
   // .popular-movie-div a {

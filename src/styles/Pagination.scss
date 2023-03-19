@@ -1,12 +1,20 @@
 .pagination {
   position: fixed;
-  bottom: 0;
-  //   background-color: blue;
+  top: 90%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   width: 50rem;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 3rem;
+}
+
+.current-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Regular";
 }
 
 @media all and (max-width: 480px) {

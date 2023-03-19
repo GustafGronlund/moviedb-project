@@ -75,7 +75,7 @@ const PopularMovies = () => {
           numPages={Math.ceil(movies.total_pages)}
           hasPreviousPage={movies.page !== 1}
           hasNextPage={movies.page !== movies.total_pages}
-          onPreviousPage={() => setSearchParams({ page: -1 })}
+          onPreviousPage={() => setSearchParams({ page: page - 1 })}
           onNextPage={() => setSearchParams({ page: page + 1 })}
         />
       </section>

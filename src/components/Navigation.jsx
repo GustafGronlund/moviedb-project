@@ -35,10 +35,10 @@ const Navigation = () => {
         </Link>
         <nav className="menu-desktop">
           <ul>
-            <Link to="/popularmovies">Popular</Link>
-            <Link to="/nowplaying">Now Playing</Link>
-            <Link to="/topratedmovies">Top Rated</Link>
-            <Link to="/genres">Genres</Link>
+            <Link to="/popularmovies">POPULAR</Link>
+            <Link to="/nowplaying">NOW PLAYING</Link>
+            <Link to="/topratedmovies">TOP RATED</Link>
+            <Link to="/genres">GENRES</Link>
           </ul>
         </nav>
         <div className="mobile-menu-container">
@@ -54,16 +54,16 @@ const Navigation = () => {
       ></div>
       <ul className={toggleMenu ? "mobile-menu-true" : "mobile-menu-false"}>
         <Link to="/popularmovies" className="mobile-menu-item">
-          Popular
+          POPULAR
         </Link>
         <Link to="/nowplaying" className="mobile-menu-item">
-          Now Playing
+          NOW PLAYING
         </Link>
         <Link to="/topratedmovies" className="mobile-menu-item">
-          Top Rated
+          TOP RATED
         </Link>
         <Link to="/genres" className="mobile-menu-item">
-          Genres
+          GENRES
         </Link>
       </ul>
     </>

@@ -7,11 +7,13 @@ import NowPlayingPage from "./pages/NowPlayingPage";
 import PopularMoviesPage from "./pages/PopularMoviesPage";
 import TopRatedMoviesPage from "./pages/TopRatedMoviesPage";
 import GenresPage from "./pages/GenresPage";
+import SelectedGenresPage from "./pages/SelectedGenresPage";
 import Movie from "./pages/Movie";
 import ActorPage from "./pages/ActorPage";
 import { ReactQueryDevtools } from "react-query/devtools";
 // import "./assets/scss/App.scss";
 import "./styles/App.scss";
+import "./assets/scss/fonts/RoobertTRIAL-Regular.woff";
 
 function App() {
   return (
@@ -25,6 +27,7 @@ function App() {
         <Route path="/popularmovies" element={<PopularMoviesPage />} />
         <Route path="/topratedmovies" element={<TopRatedMoviesPage />} />
         <Route path="/genres" element={<GenresPage />} />
+        <Route path="/genres/:name/:id" element={<SelectedGenresPage />} />
         <Route path="/movie/:id" element={<Movie />} />
         <Route path="actor/:id" element={<ActorPage />} />
       </Routes>

@@ -45,6 +45,13 @@ const getGenres = () => {
   return get(`${BASE_URL}/genre/movie/list`, requestOptions);
 };
 
+const getMoviesByGenre = (id, page) => {
+  return get(
+    `${BASE_URL}/discover/movie?&with_genres=${id}&page=${page}`,
+    requestOptions
+  );
+};
+
 const getMovie = (id) => {
   return get(
     `${BASE_URL}/movie/${id}?&append_to_response=credits`,
@@ -62,13 +69,9 @@ const getActor = (id) => {
 export default {
   getPopularMovies,
   getNowPlaying,
-  // getTrending,
   getTopRated,
-  // getMoviePoster,
   getMovie,
   getActor,
   getGenres,
-  // getMoviesByGenre,
-  // getRecommended,
-  // getSearchResult,
+  getMoviesByGenre,
 };
