@@ -4,9 +4,7 @@ import * as api from "../services/TMDBAPI";
 
 const PopularMovies = () => {
   const imgUrl = "https://image.tmdb.org/t/p/w500";
-  // popular-movies är nyckel i cache för att separera mot andra querys, nästa är api-call
   const { data } = useQuery("popular-movies", api.getPopularMovies);
-  console.log("datan:", data);
   return (
     <>
       <h4>20 most popular movies</h4>

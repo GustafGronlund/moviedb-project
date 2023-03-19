@@ -1,6 +1,5 @@
 import React from "react";
 import { Link, NavLink, useNavigate, useSearchParams } from "react-router-dom";
-import Marquee from "react-fast-marquee";
 import * as api from "../services/TMDBAPI";
 import "../styles/TopRatedMovies.scss";
 import useGetTopRated from "../hooks/useGetTopRated";
@@ -14,14 +13,7 @@ const TopRatedMovies = () => {
   const navigate = useNavigate();
   const { data: movies, isLoading } = useGetTopRated(page);
 
-  // länk till movies-id
   const imgUrl = "https://image.tmdb.org/t/p/w500";
-  // popular-movies är nyckel i cache för att separera mot andra querys, nästa är api-call
-  // const { data, isLoading, isError, error } = useQuery(
-  //   "toprated-movies",
-  //   api.getTopRatedMovies
-  // );
-  console.log("datan:", movies);
 
   const link = document.querySelectorAll(".link");
   const hoverReveal = document.querySelectorAll(".hover-reveal");

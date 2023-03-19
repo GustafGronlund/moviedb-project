@@ -10,7 +10,6 @@ const PopularMovies = () => {
     : null;
   const navigate = useNavigate();
   const { data: movies, isLoading } = usePopular(page);
-  console.log(movies);
   const imgUrl = "https://image.tmdb.org/t/p/w500";
 
   const link = document.querySelectorAll(".link");

@@ -12,7 +12,6 @@ const PopularMovies = () => {
     ["discover-movies"],
     api.discoverMovies
   );
-  console.log("datan:", data);
 
   if (isLoading) {
     return "it's loading";
@@ -35,14 +34,7 @@ const PopularMovies = () => {
         {data?.results.map((movie) => (
           <div className="movie-div">
             <img src={`${imgUrl}${movie.poster_path}`} />
-            <Link
-              to={`/movie/${movie.id}`}
-              onClick={() => {
-                console.log(movie.id);
-              }}
-            >
-              {movie.original_title}
-            </Link>
+            <Link to={`/movie/${movie.id}`}>{movie.original_title}</Link>
             <p key={movie.id}>{movie.original_title}</p>
           </div>
         ))}

@@ -1,3 +1,5 @@
+/* desktop */
+
 header {
   width: 100vw;
   display: flex;
@@ -15,7 +17,6 @@ header {
   min-width: 100%;
   background-image: url(../assets/scss/gifs/background_gif.gif);
   background-position: center;
-  // background-repeat: no-repeat;
 }
 
 .mobile-menu-container {
@@ -74,17 +75,49 @@ ul a:hover {
     display: none;
   }
 
-  .mobile-menu-container {
+  .mobile-menu-container-false {
     display: flex;
-    height: 3rem;
-    width: 3rem;
+    height: 1.5rem;
+    width: 2rem;
     justify-content: space-between;
     flex-direction: column;
+    cursor: pointer;
+  }
+
+  .mobile-menu-container-active {
+    display: flex;
+    height: 1.5rem;
+    width: 2rem;
+    position: relative;
+    cursor: pointer;
   }
 
   .mobile-menu-line {
     height: 1px;
-    color: #222;
+    background-color: #222;
+    width: 100%;
+  }
+
+  .mobile-menu-line-first-active {
+    background-color: white;
+    height: 1px;
+    width: 100%;
+    transform: rotate(45deg);
+    position: absolute;
+    top: 50%;
+  }
+
+  .mobile-menu-line-second-active {
+    opacity: 0;
+  }
+
+  .mobile-menu-line-third-active {
+    background-color: white;
+    height: 1px;
+    width: 100%;
+    transform: rotate(-45deg);
+    position: absolute;
+    top: 50%;
   }
 
   .header-logo {
@@ -103,8 +136,7 @@ ul a:hover {
     top: 0;
     z-index: 2;
     margin-bottom: 0%;
-    // background-color: rgba(248, 248, 248, 0.8);
-    color: #222222;
+    background-color: rgba(248, 248, 248, 0);
   }
 
   header a {
@@ -120,13 +152,13 @@ ul a:hover {
 
   .mobile-menu-true {
     width: 100%;
-    background-color: lightblue;
     display: flex;
     justify-content: center;
     align-items: center;
     position: fixed;
     flex-direction: column;
-    background-color: rgba(248, 248, 248, 0.8);
+    background-color: #222222;
+    top: 0;
   }
 
   .mobile-menu-false {
@@ -134,12 +166,12 @@ ul a:hover {
   }
 
   .mobile-menu-item {
-    color: white;
     text-decoration: none;
-    font-size: 3rem;
+    font-size: 1rem;
     list-style: none;
     cursor: pointer;
-    opacity: 0;
-    transform: translateX(-1rem);
+    color: white;
+    margin: 0;
+    padding: 2rem 0 2rem 0;
   }
 }

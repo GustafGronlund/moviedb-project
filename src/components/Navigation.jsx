@@ -2,29 +2,14 @@ import { Link, NavLink } from "react-router-dom";
 import "../styles/Navigation.scss";
 import { MdMovie } from "react-icons/md";
 import { useState } from "react";
-import { gsap } from "gsap";
 import moviereel from "../assets/scss/gifs/moviereel.gif";
 import backgroundGif from "../assets/scss/gifs/background_gif.gif";
 
 const Navigation = () => {
   const [toggleMenu, setToggleMenu] = useState(false);
 
-  const tl = gsap.timeline({ defaults: { ease: "power1.out" } });
-
-  tl.to(".mobile-menu-false", { y: "100%", duration: 1 });
-  tl.to(".mobile-menu-item", {
-    opacity: 1,
-    duration: 1,
-    stagger: 0.25,
-    transform: "translateX(0)",
-  });
-
   const mobileMenuActive = () => {
     setToggleMenu(!toggleMenu);
-
-    if (toggleMenu) {
-      tl.reverse();
-    }
   };
 
   return (
@@ -41,13 +26,29 @@ const Navigation = () => {
             <Link to="/genres">GENRES</Link>
           </ul>
         </nav>
-        <div className="mobile-menu-container">
-          {/* <a onClick={mobileMenuActive} className="mobile-menu-btn">
-            MENU
-          </a> */}
-          <span className="mobile-menu-line"></span>
-          <span className="mobile-menu-line"></span>
-          <span className="mobile-menu-line"></span>
+        <div
+          className={
+            toggleMenu
+              ? "mobile-menu-container-active"
+              : "mobile-menu-container-false"
+          }
+          onClick={mobileMenuActive}
+        >
+          <span
+            className={
+              toggleMenu ? "mobile-menu-line-first-active" : "mobile-menu-line"
+            }
+          ></span>
+          <span
+            className={
+              toggleMenu ? "mobile-menu-line-second-active" : "mobile-menu-line"
+            }
+          ></span>
+          <span
+            className={
+              toggleMenu ? "mobile-menu-line-third-active" : "mobile-menu-line"
+            }
+          ></span>
         </div>
       </header>
 
