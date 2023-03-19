@@ -74,6 +74,19 @@ ul a:hover {
     display: none;
   }
 
+  .mobile-menu-container {
+    display: flex;
+    height: 3rem;
+    width: 3rem;
+    justify-content: space-between;
+    flex-direction: column;
+  }
+
+  .mobile-menu-line {
+    height: 1px;
+    color: #222;
+  }
+
   .header-logo {
     display: flex;
     justify-content: center;
