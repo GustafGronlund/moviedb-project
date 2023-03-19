@@ -1,12 +1,26 @@
-.genresMovies {
-  //   height: 100vh;
+.genresMoviesList {
   width: 100%;
-  display: flex;
-  flex-direction: column;
+  // display: flex;
+  // flex-direction: column;
 }
 
-.genresMovies > a {
-  margin: 3rem;
+.genre-name-link-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem;
+}
+
+.genre-name-link {
+  font-size: 3rem;
   color: #222;
   text-decoration: none;
+}
+
+@media all and (max-width: 480px) {
+  .genre-name-link {
+    padding: 2rem;
+    font-size: 1rem;
+  }
 }
