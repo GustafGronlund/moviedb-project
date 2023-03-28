@@ -12,12 +12,20 @@ const Pagination = ({
   hasNextPage,
   onNextPage,
 }) => {
+  const scrollBackToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
   return (
     <div className="pagination d-flex justify-content-between align-items-center mt-3">
       <div className="previous-page">
         <IconButton
           disabled={!hasPreviousPage}
           onClick={onPreviousPage}
+          onMouseDown={scrollBackToTop}
           variant="warning"
         >
           <ArrowBackIosNewIcon style={{ fill: "#282828" }} />
@@ -32,6 +40,7 @@ const Pagination = ({
         <IconButton
           disabled={!hasNextPage}
           onClick={onNextPage}
+          onMouseDown={scrollBackToTop}
           variant="warning"
         >
           <ArrowForwardIosIcon style={{ fill: "#282828" }} />

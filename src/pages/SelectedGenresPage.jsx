@@ -3,7 +3,9 @@ import useGetMoviesByGenre from "../hooks/useGetMovieByGenre";
 import Pagination from "../components/pagination";
 import { useNavigate, NavLink } from "react-router-dom";
 import { useSearchParams, useLocation } from "react-router-dom";
-import "../styles/SelectedGenresPage.scss";
+import BrowseMovieCard from "../components/BrowseMovieCard";
+import LoadingIndicator from "../components/LoadingIndicator";
+import "../styles/BrowseMoviesPageStyling.scss";
 
 const SelectedGenresPage = () => {
   const [searchParams, setSearchParams] = useSearchParams({ page: 1 });
@@ -11,47 +13,36 @@ const SelectedGenresPage = () => {
     ? Number(searchParams.get("page"))
     : null;
   const { id, name } = useParams();
-  const { data: data, isLoading } = useGetMoviesByGenre(id, page);
+  const { data: movies, isLoading } = useGetMoviesByGenre(id, page);
   const navigate = useNavigate();
   const location = useLocation();
-  const imgUrl = "https://image.tmdb.org/t/p/w500";
+
+  if (isLoading) {
+    return <LoadingIndicator />;
+  }
 
   return (
     <>
-      <section className="genres-movies-container">
-        <div className="site-title">
-          <h4 className="site-title-text">{name}</h4>
+      <section className="browse-movies-container">
+        <div className="genre-title">
+          <h4 className="genre-title-text">{name}</h4>
         </div>
-        <section className="genresMovies">
-          {data?.results.map((movie) => (
-            <div className="genres-movie-div link">
-              <div className="genres-movie-poster-container">
-                <img
-                  className="genres-movie-poster"
-                  src={`${imgUrl}${movie.poster_path}`}
-                />
-              </div>
-              <NavLink className="genres-movie-title" to={`/movie/${movie.id}`}>
-                <p key={movie.id}>{movie.original_title}</p>
-              </NavLink>
-              <div></div>
-              <div className="hover-reveal image01">
-                <img
-                  src={`${imgUrl}${movie.poster_path}`}
-                  alt="movie-poster"
-                  className="hidden-img"
-                />
-              </div>
-              <p className="genres-movie-overview">{movie.overview}</p>
-            </div>
+        <section className="movies-container">
+          {movies?.results.map((movie) => (
+            <BrowseMovieCard
+              poster={movie.poster_path}
+              title={movie.original_title}
+              overview={movie.overview}
+              id={movie.id}
+            />
           ))}
         </section>
         <Pagination
-          page={data?.page}
-          numPages={Math.ceil(data?.total_pages)}
-          hasPreviousPage={data?.page !== 1}
-          hasNextPage={data?.page !== data?.total_pages}
-          onPreviousPage={() => setSearchParams({ page: -1 })}
+          page={movies.page}
+          numPages={Math.ceil(movies.total_pages)}
+          hasPreviousPage={movies.page !== 1}
+          hasNextPage={movies.page !== movies.total_pages}
+          onPreviousPage={() => setSearchParams({ page: page - 1 })}
           onNextPage={() => setSearchParams({ page: page + 1 })}
         />
       </section>

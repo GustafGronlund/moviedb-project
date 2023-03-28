@@ -1,9 +1,8 @@
 import React from "react";
 import { Link, useParams } from "react-router-dom";
 import useMovie from "../hooks/useGetMovie";
-import { useQuery } from "react-query";
-import * as api from "../services/TMDBAPI";
 import "../styles/Movie.scss";
+import LoadingIndicator from "../components/LoadingIndicator";
 
 const Movie = () => {
   const { id } = useParams();
@@ -11,7 +10,7 @@ const Movie = () => {
   const imgUrl = "https://image.tmdb.org/t/p/w300";
 
   if (isLoading) {
-    return "loading s0 sl0w... :(";
+    return <LoadingIndicator />;
   }
 
   return (
