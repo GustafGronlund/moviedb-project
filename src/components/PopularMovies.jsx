@@ -55,8 +55,6 @@ const PopularMovies = () => {
               >
                 <p key={movie.id}>{movie.original_title}</p>
               </NavLink>
-              {/* // TODO : Sätt genre här
-              <div>${movie.genre_ids}</div> */}
               <div></div>
               <div className="hover-reveal image01">
                 <img
@@ -66,9 +64,16 @@ const PopularMovies = () => {
                 />
               </div>
               <p className="popular-movie-overview">{movie.overview}</p>
+              <button className="mobile-button">
+                {" "}
+                <NavLink to={`/movie/${movie.id}`}>
+                  <a>See more</a>
+                </NavLink>
+              </button>
             </div>
           ))}
         </section>
+
         <Pagination
           page={movies.page}
           numPages={Math.ceil(movies.total_pages)}

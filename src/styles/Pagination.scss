@@ -22,7 +22,16 @@
     justify-content: space-between;
     width: 40%;
     border-radius: 1rem;
-    top: 90%;
+    top: 95%;
+    color: #353535;
+    position: static;
+    transform: translate(0, 0);
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+  }
+
+  .pagination svg path {
+    fill: #353535;
   }
 
   .current-page {
@@ -31,5 +40,16 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+  }
+
+  .pagination-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .current-page {
+    font-weight: normal;
   }
 }

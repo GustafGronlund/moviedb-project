@@ -25,8 +25,7 @@ const Pagination = ({
       </div>
 
       <div className="current-page">
-        {page}
-        <p> </p> / {numPages}
+        {page} / {numPages}
       </div>
 
       <div className="next-page">
