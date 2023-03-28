@@ -1,5 +1,3 @@
-/* desktop */
-
 header {
   width: 100vw;
   display: flex;
@@ -73,25 +71,14 @@ ul a:hover {
   opacity: 0.6;
 }
 
-@media all and (min-width: 480px) {
-  ul a {
-    font-size: 1rem;
-  }
-
+@media all and (max-width: 480px) {
   .menu-desktop {
+    display: none;
     ul {
       a {
         font-size: 1rem;
       }
     }
-  }
-}
-
-/* mobile */
-
-@media all and (max-width: 480px) {
-  .menu-desktop {
-    display: none;
   }
 
   .mobile-menu-container-false {
