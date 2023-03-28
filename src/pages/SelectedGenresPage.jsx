@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import useGetMoviesByGenre from "../hooks/useGetMovieByGenre";
-import Pagination from "../components/pagination";
+import Pagination from "../components/Pagination";
 import { useNavigate, NavLink } from "react-router-dom";
 import { useSearchParams, useLocation } from "react-router-dom";
 import BrowseMovieCard from "../components/BrowseMovieCard";

@@ -1,4 +1,5 @@
 import { NavLink } from "react-router-dom";
+import "../styles/BrowseMovieCard.scss";
 
 const BrowseMovieCard = ({ poster, title, overview, id }) => {
   const imgUrl = "https://image.tmdb.org/t/p/w500";

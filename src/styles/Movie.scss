@@ -58,14 +58,12 @@
     }
 
     .movie-actors-container {
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-      flex-direction: row;
-      overflow-x: scroll;
-      margin-bottom: 3%;
       width: 100%;
-      padding: 3rem;
+      display: flex;
+      overflow-x: scroll;
+      scroll-behavior: smooth;
+      flex-direction: row;
+      margin-bottom: 3%;
       .movie-cast-person-container {
         margin-right: 3%;
         display: flex;
@@ -115,7 +113,7 @@
       align-items: normal;
 
       .movie-biography {
-        padding-bottom: 6rem;
+        padding-bottom: 3rem;
       }
 
       .movie-small-info-container {

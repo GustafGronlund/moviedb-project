@@ -16,7 +16,7 @@ const Navigation = () => {
     <>
       <header>
         <Link className="header-logo" to="/">
-          <img src={moviereel} alt="loading..." />
+          🎥 FilmFiesta
         </Link>
         <nav className="menu-desktop">
           <ul>
@@ -53,16 +53,32 @@ const Navigation = () => {
       </header>
 
       <ul className={toggleMenu ? "mobile-menu-true" : "mobile-menu-false"}>
-        <Link to="/popularmovies" className="mobile-menu-item">
+        <Link
+          onClick={mobileMenuActive}
+          to="/popularmovies"
+          className="mobile-menu-item"
+        >
           POPULAR
         </Link>
-        <Link to="/nowplaying" className="mobile-menu-item">
+        <Link
+          onClick={mobileMenuActive}
+          to="/nowplaying"
+          className="mobile-menu-item"
+        >
           NOW PLAYING
         </Link>
-        <Link to="/topratedmovies" className="mobile-menu-item">
+        <Link
+          onClick={mobileMenuActive}
+          to="/topratedmovies"
+          className="mobile-menu-item"
+        >
           TOP RATED
         </Link>
-        <Link to="/genres" className="mobile-menu-item">
+        <Link
+          onClick={mobileMenuActive}
+          to="/genres"
+          className="mobile-menu-item"
+        >
           GENRES
         </Link>
       </ul>
