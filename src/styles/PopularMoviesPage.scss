@@ -17,7 +17,7 @@ p {
   color: #222222;
   position: absolute;
   top: 6rem;
-  left: 3 rem;
+  left: 3rem;
 }
 
 .popular-movies-container {
@@ -62,6 +62,9 @@ p {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  button {
+    display: none;
+  }
 }
 
 .popular-movie-poster {
@@ -98,7 +101,22 @@ p {
 @media all and (max-width: 480px) {
   .popular-movies-container {
     position: static;
-    padding: 0 10% 0 10%;
+    padding: 0;
+    height: 100%;
+    .site-title {
+      position: static;
+      padding: 0% 0% 0% 0%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      h4 {
+        position: static;
+        font-size: 2rem;
+        margin-bottom: 3%;
+        padding: 0;
+        margin: 0;
+      }
+    }
   }
 
   .popular-movie-poster-container {
@@ -106,19 +124,14 @@ p {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 5rem 0 1rem 0;
+    padding: 0;
   }
 
   .popular-movie-poster {
     height: 100%;
     width: 100%;
     display: block;
-  }
-
-  .site-title-text {
-    font-size: 3rem;
-    margin-bottom: 3%;
-    position: fixed;
+    margin-bottom: 1rem;
   }
 
   .popularMovies {
@@ -127,44 +140,57 @@ p {
     align-items: center;
     justify-content: center;
     flex-direction: row;
+    width: 100%;
   }
 
   .popular-movie-overview {
-    padding: 3rem;
+    width: 90%;
+    padding: 0rem;
+    font-size: 0.8rem;
   }
 
   .popular-movie-div {
+    margin: 1rem 0 1rem 0;
     border-radius: 1rem;
-    width: 100%;
-    padding: 0%;
-
+    width: 80%;
+    background: white;
     .popular-movie-title {
       display: grid;
       place-content: center;
       text-align: center;
+      padding: 0;
+      font-size: 1.5rem;
       p {
-        padding: 1rem;
         font-weight: bold;
+      }
+    }
+    button {
+      background: rgba(35, 35, 35, 0.8);
+      padding: 0.5rem 2rem 0.5rem 2rem;
+      border-radius: 1rem;
+      margin: 1rem 0 1rem 0;
+      border: none;
+      display: block;
+      a {
+        text-decoration: 0;
+        color: #f8f8f8;
       }
     }
   }
 
   .popular-movie-overview {
-    padding: 0 1rem 5rem 1rem;
+    padding: 0;
     text-align: center;
     font-family: "Hind", sans-serif;
   }
 
   .popular-movie-div img {
-    width: 40%;
+    margin: 1rem 0 1rem 0;
+    width: 60%;
     border-radius: 1rem;
     box-shadow: 2.6px 1.5px 3.6px rgba(0, 0, 0, 0.024),
       7.3px 4.1px 10px rgba(0, 0, 0, 0.035),
       17.5px 9.9px 24.1px rgba(0, 0, 0, 0.046),
       58px 33px 80px rgba(0, 0, 0, 0.07);
   }
-
-  // .popular-movie-div a {
-  //   display: none;
-  // }
 }

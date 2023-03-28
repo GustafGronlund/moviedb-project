@@ -1,7 +1,6 @@
 import React from "react";
 import { useQuery } from "react-query";
 import { Link } from "react-router-dom";
-import Marquee from "react-fast-marquee";
 import * as api from "../services/TMDBAPI";
 
 const PopularMovies = () => {
