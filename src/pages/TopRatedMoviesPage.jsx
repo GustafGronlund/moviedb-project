@@ -41,7 +41,7 @@ const TopRatedMoviesPage = () => {
     <>
       <section className="browse-movies-container">
         <div className="genre-title">
-          <h4 className="genre-title-text">POPULAR</h4>
+          <h4 className="genre-title-text">Top Rated</h4>
         </div>
         <section className="movies-container">
           {movies?.results.map((movie) => (
