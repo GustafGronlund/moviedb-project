@@ -1,4 +1,3 @@
-import React from "react";
 import "../styles/Pagination.scss";
 import IconButton from "@mui/material/IconButton";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
