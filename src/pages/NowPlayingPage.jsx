@@ -3,7 +3,7 @@ import useGetNowPlaying from "../hooks/useGetNowPlaying";
 import BrowseMovieCard from "../components/BrowseMovieCard";
 import LoadingIndicator from "../components/LoadingIndicator";
 import "../styles/BrowseMoviesPageStyling.scss";
-import Pagination from "../components/Pagination";
+import Pagination from "../components/Pagination.jsx";
 
 const NowPlayingPage = () => {
   const [searchParams, setSearchParams] = useSearchParams({ page: 1 });

@@ -10,8 +10,6 @@ const Movie = () => {
   const { data: movie, isLoading } = useMovie(id);
   const imgUrl = "https://image.tmdb.org/t/p/w300";
 
-  console.log(movie);
-
   if (isLoading) {
     return <LoadingIndicator />;
   }

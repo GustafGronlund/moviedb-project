@@ -31,8 +31,6 @@ const PopularMoviesPage = () => {
     });
   }
 
-  console.log(movies);
-
   if (isLoading) {
     return <LoadingIndicator />;
   }
