@@ -25,7 +25,7 @@ const Pagination = ({
         <IconButton
           disabled={!hasPreviousPage}
           onClick={onPreviousPage}
-          onMouseDown={scrollBackToTop}
+          onMouseUp={scrollBackToTop}
           variant="warning"
         >
           <ArrowBackIosNewIcon style={{ fill: "#282828" }} />
@@ -40,7 +40,7 @@ const Pagination = ({
         <IconButton
           disabled={!hasNextPage}
           onClick={onNextPage}
-          onMouseDown={scrollBackToTop}
+          onMouseUp={scrollBackToTop}
           variant="warning"
         >
           <ArrowForwardIosIcon style={{ fill: "#282828" }} />

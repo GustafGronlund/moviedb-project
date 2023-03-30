@@ -34,6 +34,9 @@ const SelectedGenresPage = () => {
               title={movie.original_title}
               overview={movie.overview}
               id={movie.id}
+              vote={movie.vote_average}
+              date={movie.release_date}
+              genre={movie.genre_ids}
             />
           ))}
         </section>

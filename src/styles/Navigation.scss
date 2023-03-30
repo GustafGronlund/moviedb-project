@@ -3,11 +3,11 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1.5% 3% 1.5% 3%;
-  position: sticky;
+  padding: 1rem 3rem 1rem 3rem;
+  position: fixed;
   top: 0;
-  z-index: 2;
   color: #222222;
+  z-index: 999;
 }
 
 .menu-desktop {
@@ -31,44 +31,33 @@ header {
 
 .header-logo {
   text-decoration: none;
-  color: #222222;
-}
-
-.header-logo a {
-  padding: 0 3% 0 3%;
-  transition: 0.6s all ease-in-out;
-  font-size: 1rem;
-  color: #222222;
-}
-
-.header-loglo-title {
+  color: #353535;
   font-size: 1.5rem;
-  color: #222222;
+  transition: 0.3s all ease-in-out;
+  &:hover {
+    opacity: 0.6;
+  }
+}
+
+.header-logo-title {
+  font-size: 1.5rem;
+  color: #353535;
 }
 
 ul {
   display: flex;
   justify-content: space-between;
-  width: 50vw;
+  width: 50%;
   margin-left: auto;
   a {
-    font-size: 1.5rem;
-    color: #222222;
-    font-size: 1.5rem;
+    font-size: 1rem;
+    transition: 0.3s all ease-in-out;
+    color: #353535;
+    text-decoration: none;
+    &:hover {
+      opacity: 0.6;
+    }
   }
-}
-
-ul a:hover {
-  text-decoration: line-through;
-}
-
-.menu-desktop a {
-  text-decoration: none;
-  transition: 0.6s all ease-in-out;
-}
-
-.header-logo a {
-  opacity: 0.6;
 }
 
 @media all and (max-width: 480px) {
@@ -105,12 +94,13 @@ ul a:hover {
   }
 
   .mobile-menu-line-first-active {
-    background-color: white;
+    background-color: #f8f8f8;
     height: 1px;
     width: 100%;
     transform: rotate(45deg);
     position: absolute;
     top: 50%;
+    transition: 0.1s all ease-in-out;
   }
 
   .mobile-menu-line-second-active {
@@ -118,12 +108,13 @@ ul a:hover {
   }
 
   .mobile-menu-line-third-active {
-    background-color: white;
+    background-color: #f8f8f8;
     height: 1px;
     width: 100%;
     transform: rotate(-45deg);
     position: absolute;
     top: 50%;
+    transition: 0.1s all ease-in-out;
   }
 
   .header-logo {
@@ -132,15 +123,21 @@ ul a:hover {
     align-items: center;
   }
 
+  .header-logo-active {
+    color: #f8f8f8;
+    position: relative;
+    z-index: 999;
+  }
+
   header {
+    z-index: 999 !important;
     height: 3rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0 3% 0 3%;
-    position: sticky;
+    position: fixed;
     top: 0;
-    z-index: 2;
     margin-bottom: 0%;
     background-color: rgba(248, 248, 248, 0);
   }
@@ -166,6 +163,7 @@ ul a:hover {
     background-color: #222222;
     top: 0;
     height: 100vh;
+    z-index: 5;
   }
 
   .mobile-menu-false {

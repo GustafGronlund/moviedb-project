@@ -1,8 +1,19 @@
 import { NavLink } from "react-router-dom";
 import "../styles/BrowseMovieCard.scss";
+import { FaStar } from "react-icons/fa";
 
-const BrowseMovieCard = ({ poster, title, overview, id }) => {
+const BrowseMovieCard = ({
+  poster,
+  title,
+  overview,
+  id,
+  vote,
+  date,
+  genre,
+}) => {
   const imgUrl = "https://image.tmdb.org/t/p/w500";
+  const releaseDate = date.substring(0, 4);
+  const voteAverage = Math.round(vote * 10) / 10;
 
   return (
     <>
@@ -20,7 +31,14 @@ const BrowseMovieCard = ({ poster, title, overview, id }) => {
             className="hidden-img"
           />
         </div>
-        <p className="movie-overview">{overview}</p>
+        <div className="movie-details">
+          <p>{releaseDate}</p>
+          <div className="vote-container">
+            <FaStar />
+            <p>{voteAverage}</p>
+          </div>
+        </div>
+        {/* <p className="movie-overview">{overview}</p> */}
         <button className="mobile-button">
           {" "}
           <NavLink to={`/movie/${id}`}>

@@ -15,8 +15,11 @@ const Navigation = () => {
   return (
     <>
       <header>
-        <Link className="header-logo" to="/">
-          🎥 FilmFiesta
+        <Link
+          className={toggleMenu ? "header-logo-active" : "header-logo"}
+          to="/"
+        >
+          FilmFiesta
         </Link>
         <nav className="menu-desktop">
           <ul>

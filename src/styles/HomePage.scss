@@ -1,9 +1,3 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 .hero-section {
   height: 100vh;
   width: 100%;
@@ -12,11 +6,36 @@
   align-items: center;
   flex-direction: column;
   h1,
-  h3 {
+  h3,
+  p {
     color: #222;
     font-weight: normal;
     padding: 1rem;
   }
+  button {
+    margin-top: 1rem;
+    padding: 0.5rem 4rem 0.5rem 4rem;
+    border-radius: 1rem;
+    color: #f8f8f8;
+    background: #353535;
+    border-style: none;
+    cursor: pointer;
+    transition: 0.3s all ease-in-out;
+    &:hover {
+      background: rgba(35, 35, 35, 0.8);
+    }
+  }
+  .svg-animation {
+    transform: unset;
+    svg {
+      transform: unset;
+    }
+  }
+}
+
+p {
+  width: 40%;
+  text-align: center;
 }
 
 @media all and (max-width: 480px) {
@@ -25,8 +44,20 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    height: 100%;
+    height: 100vh;
     font-size: 1rem;
     text-align: center;
+    p {
+      width: 100%;
+    }
+    button {
+      margin-top: 1rem;
+    }
+    .svg-animation {
+      transform: unset;
+      svg {
+        transform: unset;
+      }
+    }
   }
 }
