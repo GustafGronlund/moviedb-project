@@ -11,6 +11,30 @@
     font-weight: bold;
   }
 
+  .movie-biography {
+    text-align: left;
+  }
+
+  .genre-container {
+    display: flex;
+    margin-bottom: 1rem;
+    .badge {
+      margin: 1rem 0 1rem 0;
+      cursor: default;
+      background: #353535;
+      border-radius: 1rem;
+      margin-right: 0.5rem;
+      align-items: center;
+      width: fit-content;
+      p {
+        font-size: 0.8rem;
+        padding: 0.25rem 0.5rem 0.25rem 0.5rem;
+        color: white;
+        width: 100%;
+      }
+    }
+  }
+
   .movie-page-img-container {
     width: 50%;
     display: flex;
@@ -24,7 +48,22 @@
   }
 
   .mobile-movie-title {
-    display: 0;
+    display: none;
+  }
+
+  .vote-average-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .release-date-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .bold-text {
+      display: none;
+    }
   }
 
   .movie-page-second-container {
@@ -37,6 +76,7 @@
     .movie-biography {
       margin-bottom: 6%;
       font-family: "Hind", sans-serif;
+      width: 100%;
     }
 
     .movie-small-info-container {
@@ -54,6 +94,7 @@
       scroll-behavior: smooth;
       flex-direction: row;
       margin-bottom: 3%;
+      scrollbar-width: none;
       .movie-cast-person-container {
         margin-right: 3%;
         display: flex;
@@ -83,6 +124,10 @@
 
   .desktop-movie-title {
     display: none;
+  }
+
+  .movie-page-container .mobile-movie-title {
+    display: flex;
   }
 
   .mobile-movie-title {
