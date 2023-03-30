@@ -21,7 +21,6 @@ const ActorPage = () => {
           </div>
           <div className="actor-page-second-container">
             <h1>{data.name}</h1>
-            <div className="actor-small-info-container"></div>
             <p className="actor-biography">{data.biography}</p>
             <div className="actor-actors-container">
               {data.movie_credits.cast.map((movie) => (

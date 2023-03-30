@@ -66,6 +66,10 @@ const getActor = (id) => {
   );
 };
 
+// const getMovieGenres = () => {
+//   return get(`${BASE_URL}/genre/movie/list`, requestOptions);
+// };
+
 export default {
   getPopularMovies,
   getNowPlaying,
@@ -74,4 +78,5 @@ export default {
   getActor,
   getGenres,
   getMoviesByGenre,
+  // getMovieGenres,
 };
