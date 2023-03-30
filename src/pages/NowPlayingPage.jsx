@@ -14,8 +14,6 @@ const NowPlayingPage = () => {
   const { data: movies, isLoading } = useGetNowPlaying(page);
   const imgUrl = "https://image.tmdb.org/t/p/w500";
 
-  console.log(movies);
-
   const link = document.querySelectorAll(".link");
   const hoverReveal = document.querySelectorAll(".hover-reveal");
   const linkImages = document.querySelectorAll(".hidden-img");
